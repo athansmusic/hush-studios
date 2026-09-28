@@ -39,6 +39,9 @@ export default async function ShowPage({ params }: Props) {
             <Link href="/#originals" className="label hover:text-bone">← Hush Originals</Link>
             <p className="label mt-10" style={{ color: show.accent }}>{show.kind} · {show.genre}</p>
             <h1 className="display mt-4 text-[clamp(3.5rem,10vw,8.5rem)]">{show.title}</h1>
+            {show.comingSoon && (
+              <p className="mt-6 inline-block bg-bone px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-night">Coming soon</p>
+            )}
             <p className="mt-6 max-w-xl text-xl text-bone/85">{show.logline}</p>
 
             {show.listen.length > 0 && (
@@ -88,10 +91,12 @@ export default async function ShowPage({ params }: Props) {
                 <dd className="mt-1 text-bone">{show.creators}</dd>
               </div>
             )}
-            <div>
-              <dt className="label">Status</dt>
-              <dd className="mt-1 text-bone">{show.status}</dd>
-            </div>
+            {!show.comingSoon && (
+              <div>
+                <dt className="label">Status</dt>
+                <dd className="mt-1 text-bone">{show.status}</dd>
+              </div>
+            )}
             {show.site && (
               <div>
                 <dt className="label">Official site</dt>

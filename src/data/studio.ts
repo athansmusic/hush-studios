@@ -31,6 +31,8 @@ export type Show = {
   site?: string;
   /** Kept in the data but left off the site. */
   hidden?: boolean;
+  /** Unreleased: carries a "Coming soon" tag wherever it appears. */
+  comingSoon?: boolean;
 };
 
 const ALL_SHOWS: Show[] = [
@@ -70,6 +72,7 @@ const ALL_SHOWS: Show[] = [
       "CORRUPTED is an in-universe horror anthology series exploring a new aberration or case each month, set in either the modern day or somewhere in history. Some stories introduce entirely original threats; others expand on aberrations from the main show. And sometimes, the horror stems from familiar legends and stories.",
     ],
     status: "Coming soon",
+    comingSoon: true, // delete once it is out
     art: "/shows/corrupted.jpg",
     accent: "#e0303f",
     listen: [],

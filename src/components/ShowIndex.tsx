@@ -60,14 +60,15 @@ export function ShowIndex({ shows }: { shows: Show[] }) {
                 <span className="size-14 shrink-0 bg-night-3 ring-1 ring-line sm:size-20" />
               )}
               <span className="min-w-0">
-                <span className="display block text-4xl transition-transform duration-500 ease-out group-hover:translate-x-2 sm:text-6xl lg:text-7xl">
-                  {s.title}
+                <span className="flex flex-wrap items-center gap-x-4 gap-y-2 transition-transform duration-500 ease-out group-hover:translate-x-2">
+                  <span className="display text-4xl sm:text-6xl lg:text-7xl">{s.title}</span>
+                  {s.comingSoon && <span className="bg-bone px-2 py-1 font-mono text-[0.65rem] uppercase tracking-widest text-night">Coming soon</span>}
                 </span>
                 <span className="label mt-2 block sm:hidden" style={{ color: s.accent }}>{s.genre}</span>
               </span>
               <span className="hidden text-right sm:block">
                 <span className="label block" style={{ color: s.accent }}>{s.genre}</span>
-                <span className="mt-1 block font-mono text-xs uppercase tracking-[0.14em] text-ash">{s.status}</span>
+                {!s.comingSoon && <span className="mt-1 block font-mono text-xs uppercase tracking-[0.14em] text-ash">{s.status}</span>}
               </span>
             </Link>
           </Reveal>
