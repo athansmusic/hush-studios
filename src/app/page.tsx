@@ -64,14 +64,12 @@ export default function Home() {
       )}
 
       {/* Contact */}
-      <section id="contact" className="mx-auto mt-32 max-w-7xl scroll-mt-20 px-4 sm:px-8">
-        <div className="border-t border-line pt-12">
-          <p className="label">Get in touch</p>
-          <h2 className="display mt-5 max-w-4xl text-5xl sm:text-7xl">
-            Press, partnerships, or a story that won&apos;t leave you alone?
-          </h2>
-          <a href={`mailto:${STUDIO.email}`} className="link-u mt-8 inline-block font-mono text-lg sm:text-2xl">
-            {STUDIO.email}
+      <section id="contact" className="mx-auto mt-40 max-w-7xl scroll-mt-20 px-4 sm:px-8">
+        <div className="grid gap-6 border-t border-line pt-10 sm:grid-cols-[12rem_1fr] sm:items-baseline">
+          <h2 className="label">Contact</h2>
+          <a href={`mailto:${STUDIO.email}`} className="group inline-flex items-baseline gap-4 justify-self-start">
+            <span className="display text-[clamp(1.75rem,6vw,4.5rem)] leading-none transition-colors group-hover:text-ash">{STUDIO.email}</span>
+            <span aria-hidden className="text-2xl text-ash transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-bone">↗</span>
           </a>
         </div>
       </section>
