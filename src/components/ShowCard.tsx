@@ -34,7 +34,7 @@ export function ShowCard({ show, priority = false }: { show: Show; priority?: bo
         <h3 className="display text-3xl">{show.title}</h3>
         <span className="h-2 w-2 shrink-0 rounded-full" style={{ background: show.accent }} aria-hidden />
       </div>
-      <p className="label mt-1">{show.genre} · {show.creators}</p>
+      <p className="label mt-1">{show.genre}</p>
     </Link>
   );
 }

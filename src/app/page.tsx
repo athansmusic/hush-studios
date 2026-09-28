@@ -52,7 +52,7 @@ export default function Home() {
             <p className="label">Production consulting · Collaborations</p>
           </div>
           {WORKS.length > 0 ? (
-            <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
+            <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
               {WORKS.map((w) => <WorkCard key={w.title} work={w} />)}
             </div>
           ) : (

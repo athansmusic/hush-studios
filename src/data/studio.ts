@@ -171,5 +171,6 @@ export const PEOPLE: Person[] = [
 /** Additional Works: projects Hush contributed to but did not originate (production consulting, collaborations, etc). */
 export type Work = { title: string; role: string; href?: string; art?: string };
 
-// TODO: fill in from Athan's list.
-export const WORKS: Work[] = [];
+export const WORKS: Work[] = [
+  { title: "See You in Fahlstaff", role: "Production Consultants", art: "/works/see-you-in-fahlstaff.jpg" },
+];
