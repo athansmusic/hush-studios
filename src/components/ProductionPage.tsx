@@ -2,7 +2,9 @@ import Image from "next/image";
 import Link from "next/link";
 import { Wave } from "@/components/Wave";
 import { ShowCard } from "@/components/ShowCard";
+import { Episodes, PlayButton } from "@/components/Episodes";
 import type { LinkOut, Show } from "@/data/studio";
+import type { Episode } from "@/lib/feed";
 
 /** The page layout every production shares, Originals and Additional Works alike. */
 export type Production = {
@@ -20,9 +22,19 @@ export type Production = {
   /** Extra facts for the side panel, such as status or Hush's credit. */
   facts: { label: string; value: string }[];
   more: Show[];
+  /** From the RSS feed, newest first. */
+  episodes?: Episode[];
+  /** Where the page lives, so the player can link back to it. */
+  href: string;
 };
 
 export function ProductionPage({ p }: { p: Production }) {
+  const episodes = p.episodes ?? [];
+  // Feed drops, bonus content and trailers aren't where anyone should start.
+  const full = episodes.filter((e) => e.type === "full");
+  const latest = full[0] ?? episodes[0];
+  const first = full.length > 1 ? full[full.length - 1] : undefined;
+  const info = { title: p.title, accent: p.accent, href: p.href, art: p.art };
   return (
     <div style={{ ["--accent" as string]: p.accent }}>
       <section className="relative overflow-hidden">
@@ -41,20 +53,22 @@ export function ProductionPage({ p }: { p: Production }) {
             )}
             {p.logline && <p className="mt-6 max-w-xl text-xl text-bone/85">{p.logline}</p>}
 
-            {p.listen.length > 0 && (
+            {(episodes.length > 0 || p.listen.length > 0) && (
               <div className="mt-9 flex flex-wrap gap-3">
+                {latest && <PlayButton episode={latest} show={info} label="Play latest" primary />}
+                {first && <PlayButton episode={first} show={info} label="From the beginning" />}
                 {p.listen.map((l, i) => (
                   <a
                     key={l.href}
                     href={l.href}
                     className={
-                      i === 0
+                      i === 0 && !episodes.length
                         ? "px-5 py-3 text-sm font-medium text-night transition hover:brightness-110"
                         : "border border-line px-5 py-3 text-sm transition hover:border-bone"
                     }
-                    style={i === 0 ? { background: p.accent } : undefined}
+                    style={i === 0 && !episodes.length ? { background: p.accent } : undefined}
                   >
-                    Listen on {l.label}
+                    {l.label}
                   </a>
                 ))}
               </div>
@@ -106,6 +120,16 @@ export function ProductionPage({ p }: { p: Production }) {
           </dl>
         </div>
       </section>
+
+      {episodes.length > 0 && (
+        <section id="episodes" className="mx-auto mt-24 max-w-7xl scroll-mt-20 px-4 sm:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
+            <h2 className="display text-4xl sm:text-5xl">Episodes</h2>
+            <p className="label">{episodes.length} episodes</p>
+          </div>
+          <Episodes episodes={episodes} show={info} />
+        </section>
+      )}
 
       {p.more.length > 0 && (
         <section className="mx-auto mt-28 max-w-7xl px-4 sm:px-8">

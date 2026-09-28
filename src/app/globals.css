@@ -123,3 +123,12 @@ body {
   .js .reveal { opacity: 1; transform: none; transition: none; }
   .parallax, .drift { animation: none; }
 }
+
+/* ── Player scrubber ─────────────────────────────── */
+.player-scrub { appearance: none; height: 14px; background: transparent; cursor: pointer; }
+.player-scrub::-webkit-slider-runnable-track { height: 2px; background: linear-gradient(90deg, var(--accent) var(--pct), #ffffff22 var(--pct)); }
+.player-scrub::-moz-range-track { height: 2px; background: linear-gradient(90deg, var(--accent) var(--pct), #ffffff22 var(--pct)); }
+.player-scrub::-webkit-slider-thumb { appearance: none; margin-top: -5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent); opacity: 0; transition: opacity 0.2s; }
+.player-scrub::-moz-range-thumb { width: 12px; height: 12px; border: 0; border-radius: 50%; background: var(--accent); opacity: 0; }
+.player-scrub:hover::-webkit-slider-thumb, .player-scrub:focus-visible::-webkit-slider-thumb { opacity: 1; }
+.player-scrub:hover::-moz-range-thumb { opacity: 1; }

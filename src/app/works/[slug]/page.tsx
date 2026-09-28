@@ -37,6 +37,7 @@ export default async function WorkPage({ params }: Props) {
         site: work.site,
         facts: [{ label: "Hush Studios", value: work.role }],
         more: SHOWS.slice(0, 3),
+        href: `/works/${work.slug}`,
       }}
     />
   );

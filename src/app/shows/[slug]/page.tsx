@@ -1,11 +1,14 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { ProductionPage } from "@/components/ProductionPage";
+import { getEpisodes } from "@/lib/feed";
 import { SHOWS, getShow } from "@/data/studio";
 
 type Props = { params: Promise<{ slug: string }> };
 
 export const dynamicParams = false;
+// Feeds are re-read hourly, so new episodes show up without a redeploy.
+export const revalidate = 3600;
 export const generateStaticParams = () => SHOWS.map((s) => ({ slug: s.slug }));
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
@@ -21,6 +24,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ShowPage({ params }: Props) {
   const show = getShow((await params).slug);
   if (!show) notFound();
+  const episodes = show.feed ? await getEpisodes(show.feed) : [];
   return (
     <ProductionPage
       p={{
@@ -37,6 +41,8 @@ export default async function ShowPage({ params }: Props) {
         site: show.site,
         facts: show.comingSoon ? [] : [{ label: "Status", value: show.status }],
         more: SHOWS.filter((s) => s.slug !== show.slug).slice(0, 3),
+        episodes,
+        href: `/shows/${show.slug}`,
       }}
     />
   );

@@ -4,6 +4,8 @@ import "./globals.css";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { STUDIO } from "@/data/studio";
+import { PlayerProvider } from "@/lib/player";
+import { PlayerBar } from "@/components/PlayerBar";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
@@ -26,12 +28,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <script dangerouslySetInnerHTML={{ __html: "document.documentElement.classList.add('js')" }} />
       </head>
       <body className="grain min-h-dvh flex flex-col">
-        <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-bone focus:text-night focus:px-3 focus:py-2">
-          Skip to content
-        </a>
-        <Header />
-        <main id="main" className="flex-1">{children}</main>
-        <Footer />
+        <PlayerProvider>
+          <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-bone focus:text-night focus:px-3 focus:py-2">
+            Skip to content
+          </a>
+          <Header />
+          <main id="main" className="flex-1">{children}</main>
+          <Footer />
+          <PlayerBar />
+        </PlayerProvider>
       </body>
     </html>
   );

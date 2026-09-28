@@ -28,6 +28,8 @@ export type Show = {
   listen: LinkOut[];
   follow: LinkOut[];
   site?: string;
+  /** Podcast RSS feed; its episodes are listed and playable on the show page. */
+  feed?: string;
   /** Kept in the data but left off the site. */
   hidden?: boolean;
   /** Unreleased: carries a "Coming soon" tag wherever it appears. */
@@ -37,6 +39,7 @@ export type Show = {
 const ALL_SHOWS: Show[] = [
   {
     slug: "redacted",
+    feed: "https://feeds.acast.com/public/shows/68dfd04b043c361f82e093c0",
     title: "REDACTED",
     kind: "Audio drama",
     genre: "Horror comedy",
@@ -79,6 +82,7 @@ const ALL_SHOWS: Show[] = [
   },
   {
     slug: "the-seven-planes",
+    feed: "https://feeds.acast.com/public/shows/68e2c02b5f95c3d4193a1538",
     title: "The Seven Planes",
     kind: "Analog horror",
     genre: "Analog horror",
@@ -97,6 +101,7 @@ const ALL_SHOWS: Show[] = [
   },
   {
     slug: "the-cellar-letters",
+    feed: "https://feeds.acast.com/public/shows/633d459331f65200114bfe1f",
     title: "The Cellar Letters",
     kind: "Audio drama",
     genre: "Horror",
@@ -121,6 +126,7 @@ const ALL_SHOWS: Show[] = [
   },
   {
     slug: "the-grotto",
+    feed: "https://feeds.acast.com/public/shows/656324aea21bff0011ecae4f",
     title: "The Grotto",
     kind: "Audio drama",
     genre: "Horror musical",
