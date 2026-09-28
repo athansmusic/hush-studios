@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Heartbeat } from "@/components/Heartbeat";
+import { Pulse } from "@/components/Pulse";
 import { ShowCard, WorkCard } from "@/components/ShowCard";
 import { SHOWS, WORKS, PEOPLE, STUDIO, getShow } from "@/data/studio";
 
@@ -9,28 +9,28 @@ export default function Home() {
 
   return (
     <>
-      {/* Hero */}
-      <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 pt-14 pb-10 sm:px-8 sm:pt-20">
-          <h1 className="sr-only">Hush Studios</h1>
-          <Heartbeat className="rise h-40 sm:h-60" />
-          <div className="rise mt-10 grid gap-8 sm:grid-cols-[minmax(0,34rem)_auto] sm:items-end sm:justify-between" style={{ animationDelay: "0.25s" }}>
-            <div>
-              <p className="display text-4xl sm:text-5xl">
-                Close <em className="text-ash">your eyes.</em>
-              </p>
-              <p className="mt-4 text-lg text-bone/80">
-                Hush Studios makes fully immersive audio experiences, the kind you don&apos;t have to see to believe.
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-3">
-              <Link href="#originals" className="bg-bone px-5 py-3 text-sm font-medium text-night transition hover:bg-white">
-                Hear the shows
-              </Link>
-              <Link href="/shows/frights-by-fire" className="border border-line px-5 py-3 text-sm transition hover:border-bone">
-                Live Thursdays
-              </Link>
-            </div>
+      {/* Hero: almost nothing, on purpose. */}
+      <section className="relative flex min-h-[calc(100svh-4rem)] flex-col">
+        <h1 className="sr-only">Hush Studios</h1>
+        <div className="flex flex-1 items-center">
+          <Pulse className="rise h-32 w-full sm:h-40" />
+        </div>
+        <div className="rise mx-auto grid w-full max-w-7xl gap-6 px-4 pb-10 sm:grid-cols-[minmax(0,30rem)_auto] sm:items-end sm:justify-between sm:px-8" style={{ animationDelay: "0.4s" }}>
+          <div>
+            <p className="display text-2xl sm:text-3xl">
+              Close <em className="text-ash">your eyes.</em>
+            </p>
+            <p className="mt-2 text-sm text-bone/70">
+              Hush Studios makes fully immersive audio experiences, the kind you don&apos;t have to see to believe.
+            </p>
+          </div>
+          <div className="flex flex-wrap gap-3">
+            <Link href="#originals" className="bg-bone px-4 py-2.5 text-sm font-medium text-night transition hover:bg-white">
+              Hear the shows
+            </Link>
+            <Link href="/shows/frights-by-fire" className="border border-line px-4 py-2.5 text-sm transition hover:border-bone">
+              Live Thursdays
+            </Link>
           </div>
         </div>
       </section>
