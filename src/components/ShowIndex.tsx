@@ -8,8 +8,8 @@ import type { Show } from "@/data/studio";
 
 /**
  * The Originals as an index: one row per show, so it scales to any number of them.
- * Hovering a row tints the room in the show's colour and quiets the others. On touch screens,
- * where there is no hover, each row carries a small thumbnail.
+ * Each row carries a thumbnail of the show's art. Hovering a row tints the room in the show's
+ * colour and quiets the others.
  */
 export function ShowIndex({ shows }: { shows: Show[] }) {
   const [active, setActive] = useState<number | null>(null);
@@ -48,15 +48,16 @@ export function ShowIndex({ shows }: { shows: Show[] }) {
               onPointerEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
               onBlur={() => setActive(null)}
-              className="group grid grid-cols-[auto_1fr] items-center gap-x-4 border-b border-line py-6 transition-opacity duration-300 sm:grid-cols-[3rem_1fr_auto] sm:gap-x-8 sm:py-8"
+              className="group grid grid-cols-[auto_1fr] items-center gap-x-4 border-b border-line py-6 transition-opacity duration-300 sm:grid-cols-[3rem_auto_1fr_auto] sm:gap-x-8 sm:py-8"
               style={{ opacity: active === null || active === i ? 1 : 0.3 }}
             >
               <span className="hidden font-mono text-xs text-ash sm:block">{String(i + 1).padStart(2, "0")}</span>
-              {/* Thumbnail on touch screens, where there is no hover. */}
-              {s.art && (
-                <span className="relative size-14 shrink-0 overflow-hidden ring-1 ring-line sm:hidden">
-                  <Image src={s.art} alt="" fill sizes="56px" className="object-cover" />
+              {s.art ? (
+                <span className="relative size-14 shrink-0 overflow-hidden ring-1 ring-line sm:size-20">
+                  <Image src={s.art} alt="" fill sizes="80px" className="object-cover" />
                 </span>
+              ) : (
+                <span className="size-14 shrink-0 bg-night-3 ring-1 ring-line sm:size-20" />
               )}
               <span className="min-w-0">
                 <span className="display block text-4xl transition-transform duration-500 ease-out group-hover:translate-x-2 sm:text-6xl lg:text-7xl">
