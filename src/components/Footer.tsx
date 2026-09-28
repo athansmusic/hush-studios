@@ -22,6 +22,7 @@ export function Footer() {
         <div>
           <p className="label mb-3">Elsewhere</p>
           <ul className="space-y-1.5 text-sm">
+            <li><a href={STUDIO.discord} className="text-bone/80 hover:text-bone">Discord</a></li>
             <li><a href={STUDIO.youtube} className="text-bone/80 hover:text-bone">YouTube</a></li>
             <li><a href={`mailto:${STUDIO.email}`} className="text-bone/80 hover:text-bone">{STUDIO.email}</a></li>
           </ul>

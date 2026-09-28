@@ -69,6 +69,13 @@ export default function Home() {
             <span aria-hidden className="text-2xl text-ash transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-bone">↗</span>
           </a>
         </div>
+        <div className="mt-10 grid gap-6 border-t border-line pt-10 sm:grid-cols-[12rem_1fr] sm:items-baseline">
+          <h2 className="label">Community</h2>
+          <a href={STUDIO.discord} className="group inline-flex items-baseline gap-4 justify-self-start">
+            <span className="display text-[clamp(1.75rem,6vw,4.5rem)] leading-none transition-colors group-hover:text-ash">Join the Discord</span>
+            <span aria-hidden className="text-2xl text-ash transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1 group-hover:text-bone">↗</span>
+          </a>
+        </div>
       </section>
     </>
   );

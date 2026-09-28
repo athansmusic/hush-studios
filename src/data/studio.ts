@@ -10,6 +10,7 @@ export const STUDIO = {
   // Temporary until a hushstudios.co inbox exists.
   email: "crew@theredactedunit.com",
   youtube: "https://www.youtube.com/@hushstudiosofficial",
+  discord: "/discord",
 };
 
 export type LinkOut = { label: string; href: string };
