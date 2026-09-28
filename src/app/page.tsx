@@ -18,7 +18,7 @@ export default function Home() {
         <div className="rise mx-auto grid w-full max-w-7xl gap-6 px-4 pb-10 sm:grid-cols-[minmax(0,30rem)_auto] sm:items-end sm:justify-between sm:px-8" style={{ animationDelay: "0.4s" }}>
           <div>
             <p className="display text-2xl sm:text-3xl">
-              Close <em className="text-ash">your eyes.</em>
+              <em className="text-ash">close your eyes.</em>
             </p>
             <p className="mt-2 text-sm text-bone/70">
               Hush Studios makes fully immersive audio experiences, the kind you don&apos;t have to see to believe.

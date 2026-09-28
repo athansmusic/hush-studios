@@ -52,7 +52,7 @@ export async function studioCard() {
           <Bars count={110} height={110} color={BONE} />
         </div>
         <div style={{ position: "absolute", bottom: 52, left: 56, display: "flex", fontSize: 40 }}>
-          Close&nbsp;<span style={{ fontStyle: "italic", color: ASH }}>your eyes.</span>
+          <span style={{ fontStyle: "italic", color: ASH }}>close your eyes.</span>
         </div>
         <div style={{ position: "absolute", bottom: 58, right: 56, fontSize: 26, color: ASH }}>Hush Studios</div>
       </div>
