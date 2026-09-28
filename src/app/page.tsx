@@ -1,9 +1,8 @@
 import Link from "next/link";
 import { Waveform } from "@/components/Waveform";
-import { WorkCard } from "@/components/ShowCard";
 import { ShowIndex } from "@/components/ShowIndex";
 import { Reveal } from "@/components/Reveal";
-import { SHOWS, WORKS, STUDIO } from "@/data/studio";
+import { SHOWS, WORKS, STUDIO, showItem, workItem } from "@/data/studio";
 
 export default function Home() {
 
@@ -42,26 +41,22 @@ export default function Home() {
           </div>
         </Reveal>
         <div className="mx-auto max-w-7xl px-4 sm:px-8">
-          <ShowIndex shows={SHOWS} />
+          <ShowIndex items={SHOWS.map(showItem)} />
         </div>
       </section>
 
-      {/* Additional Works: hidden in production until there is something to list. */}
-      {(WORKS.length > 0 || process.env.NODE_ENV === "development") && (
-        <section id="works" className="mx-auto max-w-7xl scroll-mt-20 px-4 pt-24 sm:px-8">
-          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
-            <h2 className="display text-5xl sm:text-6xl">Additional Works</h2>
-            <p className="label">Production consulting · Collaborations</p>
-          </div>
-          {WORKS.length > 0 ? (
-            <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-              {WORKS.map((w, i) => <Reveal key={w.slug} delay={i * 0.08}><WorkCard work={w} /></Reveal>)}
+      {/* Additional Works */}
+      {WORKS.length > 0 && (
+        <section id="works" className="scroll-mt-16 pt-24">
+          <Reveal className="mx-auto max-w-7xl px-4 sm:px-8">
+            <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
+              <h2 className="display text-5xl sm:text-6xl">Additional Works</h2>
+              <p className="label">Production consulting · Collaborations</p>
             </div>
-          ) : (
-            <p className="mt-10 border border-dashed border-line p-8 font-mono text-sm text-ash">
-              [dev only] No Additional Works yet. Add them to WORKS in src/data/studio.ts.
-            </p>
-          )}
+          </Reveal>
+          <div className="mx-auto max-w-7xl px-4 sm:px-8">
+            <ShowIndex items={WORKS.map(workItem)} />
+          </div>
         </section>
       )}
 

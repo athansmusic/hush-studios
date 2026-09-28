@@ -4,14 +4,14 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useRef, useState } from "react";
 import { Reveal } from "@/components/Reveal";
-import type { Show } from "@/data/studio";
+import type { IndexItem } from "@/data/studio";
 
 /**
- * The Originals as an index: one row per show, so it scales to any number of them.
- * Each row carries a thumbnail of the show's art. Hovering a row tints the room in the show's
- * colour and quiets the others.
+ * An index of shows or works: one row each, so it scales to any number of them.
+ * Each row carries a thumbnail of the art. Hovering a row tints the room in its colour and
+ * quiets the others.
  */
-export function ShowIndex({ shows }: { shows: Show[] }) {
+export function ShowIndex({ items }: { items: IndexItem[] }) {
   const [active, setActive] = useState<number | null>(null);
   const listRef = useRef<HTMLOListElement>(null);
 
@@ -31,20 +31,20 @@ export function ShowIndex({ shows }: { shows: Show[] }) {
     <ol ref={listRef} className="show-index relative isolate" onPointerLeave={() => setActive(null)}>
       {/* The room takes on the colour of whichever show is under the cursor. */}
       <div aria-hidden className="pointer-events-none absolute -inset-x-[50vw] inset-y-0 -z-10">
-        {shows.map((s, i) => (
+        {items.map((s, i) => (
           <div
-            key={s.slug}
+            key={s.key}
             className="absolute inset-0 transition-opacity duration-700"
             style={{ opacity: active === i ? 1 : 0, background: `radial-gradient(40rem 26rem at calc(50vw + var(--mx, 50%)) var(--my, 50%), color-mix(in oklab, ${s.accent} 16%, transparent), transparent 70%)` }}
           />
         ))}
       </div>
 
-      {shows.map((s, i) => (
-        <li key={s.slug}>
+      {items.map((s, i) => (
+        <li key={s.key}>
           <Reveal delay={Math.min(i, 6) * 0.06}>
             <Link
-              href={`/shows/${s.slug}`}
+              href={s.href}
               onPointerEnter={() => setActive(i)}
               onFocus={() => setActive(i)}
               onBlur={() => setActive(null)}
@@ -64,11 +64,11 @@ export function ShowIndex({ shows }: { shows: Show[] }) {
                   <span className="display text-4xl sm:text-6xl lg:text-7xl">{s.title}</span>
                   {s.comingSoon && <span className="bg-bone px-2 py-1 font-mono text-[0.65rem] uppercase tracking-widest text-night">Coming soon</span>}
                 </span>
-                <span className="label mt-2 block sm:hidden" style={{ color: s.accent }}>{s.genre}</span>
+                {s.genre && <span className="label mt-2 block sm:hidden" style={{ color: s.accent }}>{s.genre}</span>}
               </span>
               <span className="hidden text-right sm:block">
-                <span className="label block" style={{ color: s.accent }}>{s.genre}</span>
-                {!s.comingSoon && <span className="mt-1 block font-mono text-xs uppercase tracking-[0.14em] text-ash">{s.status}</span>}
+                {s.genre && <span className="label block" style={{ color: s.accent }}>{s.genre}</span>}
+                {s.detail && <span className="mt-1 block font-mono text-xs uppercase tracking-[0.14em] text-ash">{s.detail}</span>}
               </span>
             </Link>
           </Reveal>

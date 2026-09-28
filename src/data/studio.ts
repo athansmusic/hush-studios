@@ -214,3 +214,26 @@ export const WORKS: Work[] = [
 ];
 
 export const getWork = (slug: string) => WORKS.find((w) => w.slug === slug);
+
+/** A row in a home-page index: shows and works share the same format. */
+export type IndexItem = {
+  key: string;
+  href: string;
+  title: string;
+  art?: string;
+  accent: string;
+  genre?: string;
+  /** The small line under the genre: a show's status, a work's credit. */
+  detail?: string;
+  comingSoon?: boolean;
+};
+
+export const showItem = (s: Show): IndexItem => ({
+  key: s.slug, href: `/shows/${s.slug}`, title: s.title, art: s.art, accent: s.accent, genre: s.genre,
+  detail: s.comingSoon ? undefined : s.status, comingSoon: s.comingSoon,
+});
+
+export const workItem = (w: Work): IndexItem => ({
+  key: w.slug, href: `/works/${w.slug}`, title: w.title, art: w.art, accent: w.accent, genre: w.genre,
+  detail: w.role, comingSoon: w.comingSoon,
+});
