@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Waveform } from "@/components/Waveform";
 import { WorkCard } from "@/components/ShowCard";
-import { ShowFeature } from "@/components/ShowFeature";
+import { ShowIndex } from "@/components/ShowIndex";
 import { Reveal } from "@/components/Reveal";
 import { SHOWS, WORKS, STUDIO } from "@/data/studio";
 
@@ -41,9 +41,9 @@ export default function Home() {
             <p className="label">{String(SHOWS.length).padStart(2, "0")} originals</p>
           </div>
         </Reveal>
-        {SHOWS.map((s, i) => (
-          <ShowFeature key={s.slug} show={s} index={i} />
-        ))}
+        <div className="mx-auto max-w-7xl px-4 sm:px-8">
+          <ShowIndex shows={SHOWS} />
+        </div>
       </section>
 
       {/* Additional Works: hidden in production until there is something to list. */}
