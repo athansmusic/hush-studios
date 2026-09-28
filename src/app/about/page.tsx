@@ -13,7 +13,7 @@ export default function About() {
       <section className="pt-16 sm:pt-24">
         <p className="label rise">The studio</p>
         <h1 className="display rise mt-6 max-w-5xl text-[clamp(3rem,8vw,7rem)]" style={{ animationDelay: "0.1s" }}>
-          Small studio. <em className="text-ash">Big dark.</em>
+          Small studio.
         </h1>
         <div className="rise mt-10 grid gap-6 text-lg text-bone/80 md:grid-cols-2 max-w-5xl" style={{ animationDelay: "0.2s" }}>
           <p>
