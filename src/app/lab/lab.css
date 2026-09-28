@@ -1,0 +1,96 @@
+/* Palette pulled from the logo. */
+.lab {
+  --deep: #17152b;
+  --pink: #e58bc7;
+  --hot: #ff6ec7;
+  --lilac: #b08ad6;
+  --plum: #6b3f8f;
+}
+
+.lab-tag {
+  position: absolute;
+  top: 5rem;
+  left: 1rem;
+  z-index: 20;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  background: #000a;
+  border: 1px solid #fff3;
+  padding: 0.35rem 0.6rem;
+  color: #fff;
+}
+
+/* ── A: Comic cover ───────────────────────────────── */
+.a-halftone {
+  background-image: radial-gradient(var(--pink) 28%, transparent 30%);
+  background-size: 14px 14px;
+  mask-image: radial-gradient(ellipse at 70% 50%, #000 0%, transparent 70%);
+  opacity: 0.35;
+  animation: a-drift 30s linear infinite;
+}
+@keyframes a-drift { to { background-position: 140px 70px; } }
+.a-hush {
+  font-family: var(--font-anton);
+  color: var(--pink);
+  -webkit-text-stroke: 3px #0b0a14;
+  text-shadow: 10px 10px 0 var(--plum), 20px 20px 0 #0b0a14;
+  line-height: 0.82;
+  letter-spacing: -0.01em;
+}
+.a-bubble { animation: a-wobble 3.4s ease-in-out infinite; transform-origin: 20% 100%; }
+@keyframes a-wobble { 0%, 100% { transform: rotate(-4deg); } 50% { transform: rotate(3deg) scale(1.04); } }
+.a-logo { animation: a-float 7s ease-in-out infinite; }
+@keyframes a-float { 0%, 100% { transform: rotate(-6deg) translateY(0); } 50% { transform: rotate(-3deg) translateY(-14px); } }
+
+/* ── B: Lights out ────────────────────────────────── */
+.b-reveal {
+  mask-image: radial-gradient(circle var(--r, 180px) at var(--x, 50%) var(--y, 50%), #000 0%, #000 35%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle var(--r, 180px) at var(--x, 50%) var(--y, 50%), #000 0%, #000 35%, transparent 100%);
+}
+.b-hush { font-family: var(--font-anton); line-height: 0.8; color: var(--pink); }
+.b-whisper { font-family: var(--font-serif); font-style: italic; color: var(--lilac); }
+
+/* ── C: Found tape ────────────────────────────────── */
+.c-screen { background: radial-gradient(ellipse at center, #1d1a33 0%, #07060d 75%); }
+.c-scan {
+  background: repeating-linear-gradient(to bottom, #0000 0 2px, #0006 2px 4px);
+  pointer-events: none;
+}
+.c-roll {
+  background: linear-gradient(to bottom, #0000, #fff1 40%, #fff2 50%, #fff1 60%, #0000);
+  height: 18%;
+  animation: c-roll 5.5s linear infinite;
+}
+@keyframes c-roll { from { transform: translateY(-120%); } to { transform: translateY(650%); } }
+.c-hush {
+  font-family: var(--font-anton);
+  color: #f4ecf6;
+  line-height: 0.8;
+  text-shadow: -6px 0 var(--hot), 6px 0 #6fe3ff;
+  animation: c-jitter 4s steps(1) infinite;
+}
+@keyframes c-jitter {
+  0%, 86%, 100% { transform: none; clip-path: none; text-shadow: -6px 0 var(--hot), 6px 0 #6fe3ff; }
+  87% { transform: translateX(-18px) skewX(8deg); clip-path: inset(10% 0 55% 0); text-shadow: -18px 0 var(--hot), 18px 0 #6fe3ff; }
+  89% { transform: translateX(22px); clip-path: inset(48% 0 12% 0); }
+  91% { transform: translateX(-8px); clip-path: inset(0 0 70% 0); text-shadow: -26px 0 var(--hot), 10px 0 #6fe3ff; }
+  93% { transform: translateX(4px) skewX(-6deg); clip-path: none; }
+}
+.c-osd { font-family: var(--font-mono); text-shadow: 0 0 6px #fff8; letter-spacing: 0.08em; }
+.c-blink { animation: c-blink 1s steps(1) infinite; }
+@keyframes c-blink { 50% { opacity: 0; } }
+
+/* ── D: Code blue ─────────────────────────────────── */
+.d-grid {
+  background-image:
+    linear-gradient(#ff6ec714 1px, transparent 1px),
+    linear-gradient(90deg, #ff6ec714 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+.d-hush { font-family: var(--font-anton); line-height: 0.8; color: var(--hot); text-shadow: 0 0 40px #ff6ec7aa; }
+
+@media (prefers-reduced-motion: reduce) {
+  .a-halftone, .a-bubble, .a-logo, .c-roll, .c-hush, .c-blink { animation: none; }
+}
