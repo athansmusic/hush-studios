@@ -3,7 +3,6 @@ import Link from "next/link";
 
 const NAV = [
   { label: "Originals", href: "/#originals" },
-  { label: "Live", href: "/shows/frights-by-fire" },
   { label: "Studio", href: "/about" },
   { label: "Contact", href: "/#contact" },
 ];

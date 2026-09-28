@@ -29,9 +29,11 @@ export type Show = {
   listen: LinkOut[];
   follow: LinkOut[];
   site?: string;
+  /** Kept in the data but left off the site. */
+  hidden?: boolean;
 };
 
-export const SHOWS: Show[] = [
+const ALL_SHOWS: Show[] = [
   {
     slug: "redacted",
     title: "REDACTED",
@@ -140,6 +142,7 @@ export const SHOWS: Show[] = [
     ],
     creators: "Athan & Jamie",
     status: "Live every Thursday",
+    hidden: true, // off the site for now
     accent: "#ff7a2f",
     listen: [],
     follow: [
@@ -150,6 +153,8 @@ export const SHOWS: Show[] = [
     ],
   },
 ];
+
+export const SHOWS = ALL_SHOWS.filter((s) => !s.hidden);
 
 export const getShow = (slug: string) => SHOWS.find((s) => s.slug === slug);
 

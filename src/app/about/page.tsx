@@ -4,7 +4,7 @@ import { PEOPLE, SHOWS } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "The studio",
-  description: "Who makes Hush Studios: the creators and crew behind REDACTED, The Grotto, The Cellar Letters, The Seven Planes and Frights by Fire.",
+  description: "Who makes Hush Studios: the creators and crew behind REDACTED, The Grotto, The Cellar Letters and The Seven Planes.",
 };
 
 export default function About() {
@@ -18,8 +18,7 @@ export default function About() {
         <div className="rise mt-10 grid gap-6 text-lg text-bone/80 md:grid-cols-2 max-w-5xl" style={{ animationDelay: "0.2s" }}>
           <p>
             Hush Studios is an independent audio studio making horror in every register, from grief-soaked
-            liminal drama to monster-of-the-week comedy, recovered analog tapes, and a live show built on
-            stories our listeners send in.
+            liminal drama to monster-of-the-week comedy and recovered analog tapes.
           </p>
           <p>
             Every series is made with a full cast and a lot of care for sound. We work with independent actors, writers, composers and artists across the world.
