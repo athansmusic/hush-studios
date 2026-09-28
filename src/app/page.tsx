@@ -14,17 +14,13 @@ export default function Home() {
         <h1 className="sr-only">Hush Studios</h1>
         <div className="rise flex flex-1 flex-col items-center justify-center px-4">
           <Image src="/brand/hush-wordmark.png" alt="hush" width={234} height={96} priority className="h-10 w-auto sm:h-12" />
+          <p className="display mt-4 text-center text-xl italic text-ash sm:text-2xl">stories you don&apos;t have to see to believe</p>
           <Waveform className="mt-5 h-20 w-full max-w-2xl text-bone/80 sm:h-24" />
         </div>
         <div className="rise mx-auto grid w-full max-w-7xl gap-6 px-4 pb-10 sm:grid-cols-[minmax(0,30rem)_auto] sm:items-end sm:justify-between sm:px-8" style={{ animationDelay: "0.4s" }}>
-          <div>
-            <p className="display text-2xl sm:text-3xl">
-              <em className="text-ash">close your eyes.</em>
-            </p>
-            <p className="mt-2 text-sm text-bone/70">
-              Hush Studios makes fully immersive audio experiences, the kind you don&apos;t have to see to believe.
-            </p>
-          </div>
+          <p className="display text-2xl sm:text-3xl">
+            <em className="text-ash">close your eyes.</em>
+          </p>
           <div className="flex flex-wrap gap-3">
             <Link href="#originals" className="bg-bone px-4 py-2.5 text-sm font-medium text-night transition hover:bg-white">
               Hear the shows
