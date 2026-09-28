@@ -153,14 +153,14 @@ export const SHOWS: Show[] = [
 
 export const getShow = (slug: string) => SHOWS.find((s) => s.slug === slug);
 
-export type Person = { name: string; role: string; image?: string; credits: string };
+export type Person = { name: string; role: string; image?: string };
 
 export const PEOPLE: Person[] = [
-  { name: "Athan", role: "Co-founder", image: "/people/athan.png", credits: "Creator of The Grotto. Co-creator of REDACTED. Co-host of Frights by Fire." },
-  { name: "Jamie Petronis", role: "Co-founder", image: "/people/jamie-petronis.png", credits: "Creator of The Cellar Letters. Co-creator of REDACTED. Co-host of Frights by Fire." },
-  { name: "Derek Moreland", role: "Head of Production", credits: "REDACTED" },
-  { name: "Natalie Light", role: "Creative Director", credits: "REDACTED" },
-  { name: "Landon Whisnant", role: "Lead Sound Designer", credits: "Creator of The Seven Planes. Sound on REDACTED." },
+  { name: "Athan", role: "Co-founder", image: "/people/athan.png" },
+  { name: "Jamie Petronis", role: "Co-founder", image: "/people/jamie-petronis.png" },
+  { name: "Derek Moreland", role: "Head of Production" },
+  { name: "Natalie Light", role: "Creative Director" },
+  { name: "Landon Whisnant", role: "Lead Sound Designer" },
 ];
 
 /** Additional Works: projects Hush contributed to but did not originate (production consulting, collaborations, etc). */

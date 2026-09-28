@@ -44,7 +44,6 @@ export default function About() {
               <div className="min-w-0">
                 <p className="display text-2xl">{p.name}</p>
                 <p className="label mt-1">{p.role}</p>
-                <p className="mt-3 text-sm text-bone/75">{p.credits}</p>
               </div>
             </li>
           ))}
