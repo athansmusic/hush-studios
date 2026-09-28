@@ -36,7 +36,7 @@ export default async function ShowPage({ params }: Props) {
         />
         <div className="relative mx-auto grid max-w-7xl gap-12 px-4 pt-14 pb-16 sm:px-8 sm:pt-20 lg:grid-cols-[1fr_minmax(0,28rem)] lg:items-center">
           <div className="rise">
-            <Link href="/#shows" className="label hover:text-bone">← All shows</Link>
+            <Link href="/#originals" className="label hover:text-bone">← Hush Originals</Link>
             <p className="label mt-10" style={{ color: show.accent }}>{show.kind} · {show.genre}</p>
             <h1 className="display mt-4 text-[clamp(3.5rem,10vw,8.5rem)]">{show.title}</h1>
             <p className="mt-6 max-w-xl text-xl text-bone/85">{show.logline}</p>

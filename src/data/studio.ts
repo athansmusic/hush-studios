@@ -163,3 +163,9 @@ export const PEOPLE: Person[] = [
   { name: "Natalie Light", role: "Creative Director", credits: "REDACTED" },
   { name: "Landon Whisnant", role: "Lead Sound Designer", credits: "Creator of The Seven Planes. Sound on REDACTED." },
 ];
+
+/** Additional Works: projects Hush contributed to but did not originate (production consulting, collaborations, etc). */
+export type Work = { title: string; role: string; href?: string; art?: string };
+
+// TODO: fill in from Athan's list.
+export const WORKS: Work[] = [];

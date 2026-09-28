@@ -11,7 +11,7 @@ const serif = Instrument_Serif({ subsets: ["latin"], weight: "400", style: ["nor
 
 export const metadata: Metadata = {
   metadataBase: new URL(STUDIO.url),
-  title: { default: "Hush Studios: horror for the ears", template: "%s · Hush Studios" },
+  title: { default: "Hush Studios", template: "%s · Hush Studios" },
   description: "Hush Studios makes horror audio drama: REDACTED, The Grotto, The Cellar Letters, The Seven Planes, and Frights by Fire, live every Thursday.",
   openGraph: { type: "website", siteName: "Hush Studios", locale: "en_US" },
   twitter: { card: "summary_large_image" },

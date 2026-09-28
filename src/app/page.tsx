@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Wave } from "@/components/Wave";
-import { ShowCard } from "@/components/ShowCard";
-import { SHOWS, PEOPLE, STUDIO, getShow } from "@/data/studio";
+import { ShowCard, WorkCard } from "@/components/ShowCard";
+import { SHOWS, WORKS, PEOPLE, STUDIO, getShow } from "@/data/studio";
 
 export default function Home() {
   const series = SHOWS.filter((s) => s.kind !== "Live");
@@ -14,15 +14,14 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 pt-20 pb-10 sm:px-8 sm:pt-32">
           <p className="label rise">Independent horror audio studio</p>
           <h1 className="display rise mt-6 text-[clamp(3.5rem,13vw,11.5rem)]" style={{ animationDelay: "0.1s" }}>
-            Horror for <em className="text-ash">the ears.</em>
+            Close <em className="text-ash">your eyes.</em>
           </h1>
           <div className="rise mt-10 grid gap-8 sm:grid-cols-[minmax(0,34rem)_auto] sm:items-end sm:justify-between" style={{ animationDelay: "0.25s" }}>
             <p className="text-lg text-bone/80">
-              Hush Studios makes full-cast audio dramas, analog horror and live storytelling. Stories you hear
-              best with headphones on and the lights off.
+              Hush Studios makes fully immersive audio experiences, the kind you don&apos;t have to see to believe.
             </p>
             <div className="flex flex-wrap gap-3">
-              <Link href="#shows" className="bg-bone px-5 py-3 text-sm font-medium text-night transition hover:bg-white">
+              <Link href="#originals" className="bg-bone px-5 py-3 text-sm font-medium text-night transition hover:bg-white">
                 Hear the shows
               </Link>
               <Link href="/shows/frights-by-fire" className="border border-line px-5 py-3 text-sm transition hover:border-bone">
@@ -34,18 +33,37 @@ export default function Home() {
         <Wave bars={96} className="mx-auto h-24 max-w-7xl px-4 text-bone/25 sm:h-32 sm:px-8" />
       </section>
 
-      {/* Shows */}
-      <section id="shows" className="mx-auto max-w-7xl scroll-mt-20 px-4 pt-24 sm:px-8">
+      {/* Hush Originals */}
+      <section id="originals" className="mx-auto max-w-7xl scroll-mt-20 px-4 pt-24 sm:px-8">
         <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
-          <h2 className="display text-5xl sm:text-6xl">The shows</h2>
-          <p className="label">{String(SHOWS.length).padStart(2, "0")} productions</p>
+          <h2 className="display text-5xl sm:text-6xl">Hush Originals</h2>
+          <p className="label">{String(SHOWS.length).padStart(2, "0")} originals</p>
         </div>
-        <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-          {series.map((s, i) => (
+        <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
+          {SHOWS.map((s, i) => (
             <ShowCard key={s.slug} show={s} priority={i < 2} />
           ))}
         </div>
       </section>
+
+      {/* Additional Works: hidden in production until there is something to list. */}
+      {(WORKS.length > 0 || process.env.NODE_ENV === "development") && (
+        <section id="works" className="mx-auto max-w-7xl scroll-mt-20 px-4 pt-24 sm:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
+            <h2 className="display text-5xl sm:text-6xl">Additional Works</h2>
+            <p className="label">Production consulting · Collaborations</p>
+          </div>
+          {WORKS.length > 0 ? (
+            <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-5">
+              {WORKS.map((w) => <WorkCard key={w.title} work={w} />)}
+            </div>
+          ) : (
+            <p className="mt-10 border border-dashed border-line p-8 font-mono text-sm text-ash">
+              [dev only] No Additional Works yet. Add them to WORKS in src/data/studio.ts.
+            </p>
+          )}
+        </section>
+      )}
 
       {/* Live */}
       <section className="mx-auto mt-24 max-w-7xl px-4 sm:px-8">

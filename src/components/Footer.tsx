@@ -10,7 +10,7 @@ export function Footer() {
           <p className="mt-3 max-w-xs text-sm text-ash">Horror audio, made to be heard in the dark. Released on the {STUDIO.network.name} network.</p>
         </div>
         <div>
-          <p className="label mb-3">Shows</p>
+          <p className="label mb-3">Hush Originals</p>
           <ul className="space-y-1.5 text-sm">
             {SHOWS.map((s) => (
               <li key={s.slug}>
