@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Wave } from "@/components/Wave";
+import { HushMark } from "@/components/HushMark";
 import { ShowCard, WorkCard } from "@/components/ShowCard";
 import { SHOWS, WORKS, PEOPLE, STUDIO, getShow } from "@/data/studio";
 
@@ -11,15 +11,20 @@ export default function Home() {
     <>
       {/* Hero */}
       <section className="relative overflow-hidden">
-        <div className="mx-auto max-w-7xl px-4 pt-20 pb-10 sm:px-8 sm:pt-32">
-          <p className="label rise">Independent horror audio studio</p>
-          <h1 className="display rise mt-6 text-[clamp(3.5rem,13vw,11.5rem)]" style={{ animationDelay: "0.1s" }}>
-            Close <em className="text-ash">your eyes.</em>
-          </h1>
+        <div className="mx-auto max-w-7xl px-4 pt-14 pb-10 sm:px-8 sm:pt-20">
+          <h1 className="sr-only">Hush Studios</h1>
+          <div className="rise">
+            <HushMark />
+          </div>
           <div className="rise mt-10 grid gap-8 sm:grid-cols-[minmax(0,34rem)_auto] sm:items-end sm:justify-between" style={{ animationDelay: "0.25s" }}>
-            <p className="text-lg text-bone/80">
-              Hush Studios makes fully immersive audio experiences, the kind you don&apos;t have to see to believe.
-            </p>
+            <div>
+              <p className="display text-4xl sm:text-5xl">
+                Close <em className="text-ash">your eyes.</em>
+              </p>
+              <p className="mt-4 text-lg text-bone/80">
+                Hush Studios makes fully immersive audio experiences, the kind you don&apos;t have to see to believe.
+              </p>
+            </div>
             <div className="flex flex-wrap gap-3">
               <Link href="#originals" className="bg-bone px-5 py-3 text-sm font-medium text-night transition hover:bg-white">
                 Hear the shows
@@ -30,7 +35,6 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <Wave bars={96} className="mx-auto h-24 max-w-7xl px-4 text-bone/25 sm:h-32 sm:px-8" />
       </section>
 
       {/* Hush Originals */}
