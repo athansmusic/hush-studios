@@ -187,7 +187,7 @@ export const PEOPLE: Person[] = [
   { name: "Athan", role: "Co-creator and Head of Studio", image: "/people/athan.png" },
   { name: "Derek Moreland", role: "Head of Production", image: "/people/derek-moreland.png" },
   { name: "Natalie Light", role: "Creative Director", image: "/people/natalie-light.png" },
-  { name: "Landon Whisnant", role: "Head of Audio", image: "/people/landon-whisnant.png" },
+  { name: "Landon Whisnant", role: "Audio Director", image: "/people/landon-whisnant.png" },
 ];
 
 /** Additional Works: projects Hush contributed to but did not originate (production consulting, collaborations, etc). */
