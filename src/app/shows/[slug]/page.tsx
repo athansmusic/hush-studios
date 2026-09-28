@@ -39,6 +39,7 @@ export default async function ShowPage({ params }: Props) {
         listen: show.listen,
         follow: show.follow,
         site: show.site,
+        links: show.links,
         facts: show.comingSoon ? [] : [{ label: "Status", value: show.status }],
         more: SHOWS.filter((s) => s.slug !== show.slug).slice(0, 3),
         episodes,

@@ -21,6 +21,7 @@ export type Production = {
   site?: string;
   /** Extra facts for the side panel, such as status or Hush's credit. */
   facts: { label: string; value: string }[];
+  links?: { heading: string; label: string; href: string }[];
   more: Show[];
   /** From the RSS feed, newest first. */
   episodes?: Episode[];
@@ -107,6 +108,12 @@ export function ProductionPage({ p }: { p: Production }) {
                 <dd className="mt-1"><a href={p.site} className="link-u text-bone">{new URL(p.site).hostname.replace(/^www\./, "")}</a></dd>
               </div>
             )}
+            {p.links?.map((l) => (
+              <div key={l.href}>
+                <dt className="label">{l.heading}</dt>
+                <dd className="mt-1"><a href={l.href} className="link-u text-bone">{l.label}</a></dd>
+              </div>
+            ))}
             {p.follow.length > 0 && (
               <div>
                 <dt className="label">Follow</dt>

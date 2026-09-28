@@ -30,6 +30,8 @@ export type Show = {
   site?: string;
   /** Podcast RSS feed; its episodes are listed and playable on the show page. */
   feed?: string;
+  /** Extra links for the side panel, each under its own heading. */
+  links?: { heading: string; label: string; href: string }[];
   /** Kept in the data but left off the site. */
   hidden?: boolean;
   /** Unreleased: carries a "Coming soon" tag wherever it appears. */
@@ -62,6 +64,7 @@ const ALL_SHOWS: Show[] = [
       { label: "TikTok", href: "https://www.tiktok.com/@theredactedunit" },
     ],
     site: "https://www.theredactedunit.com/",
+    links: [{ heading: "Advertise", label: "Media kit & sponsorship", href: "https://theredactedunit.com/partner" }],
   },
   {
     slug: "corrupted",
