@@ -1,6 +1,12 @@
+/** Tolerates a bare host ("hush-studios.vercel.app") or a trailing slash in the env value. */
+function siteUrl(raw = process.env.NEXT_PUBLIC_SITE_URL?.trim()) {
+  if (!raw) return "https://hushstudios.co";
+  return (/^https?:\/\//.test(raw) ? raw : `https://${raw}`).replace(/\/+$/, "");
+}
+
 export const STUDIO = {
   name: "Hush Studios",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://hushstudios.co",
+  url: siteUrl(),
   // TODO: swap in the real studio inbox before launch.
   email: "hello@hushstudios.co",
   youtube: "https://www.youtube.com/@hushstudiosofficial",
