@@ -1,4 +1,4 @@
-/** A row of bars that swell and settle back to near-silence. Pure CSS, no client JS. */
+/** A row of bars that beat like a heart and settle back to near-silence. Pure CSS, no client JS. */
 export function Wave({ bars = 48, className = "" }: { bars?: number; className?: string }) {
   return (
     <div aria-hidden className={`wave flex items-center gap-[3px] ${className}`}>
@@ -10,7 +10,7 @@ export function Wave({ bars = 48, className = "" }: { bars?: number; className?:
         const peak = Math.max(0.08, envelope * jitter);
         return (
           <div key={i} className="h-full flex-1">
-            <span style={{ ["--peak" as string]: peak.toFixed(3), animationDelay: `${(-i * 0.09).toFixed(2)}s` }} />
+            <span style={{ ["--peak" as string]: peak.toFixed(3), animationDelay: `${(Math.abs(t - 0.5) * 0.35).toFixed(3)}s` }} />
           </div>
         );
       })}
