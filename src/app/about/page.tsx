@@ -4,7 +4,7 @@ import { PEOPLE, SHOWS } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "The studio",
-  description: "Who makes Hush Studios: the creators and crew behind REDACTED, The Grotto, The Cellar Letters, The Seven Planes and CORRUPTED.",
+  description: "Who makes Hush Studios: the team behind REDACTED, The Grotto, The Cellar Letters, The Seven Planes and CORRUPTED.",
 };
 
 export default function About() {
@@ -54,11 +54,10 @@ export default function About() {
         <ol className="mt-4">
           {SHOWS.map((s, i) => (
             <li key={s.slug} className="border-b border-line">
-              <a href={`/shows/${s.slug}`} className="group grid grid-cols-[2.5rem_1fr_auto] items-baseline gap-4 py-5 sm:grid-cols-[3rem_1fr_14rem_12rem]">
+              <a href={`/shows/${s.slug}`} className="group grid grid-cols-[2.5rem_1fr] items-baseline gap-4 py-5 sm:grid-cols-[3rem_1fr_auto]">
                 <span className="font-mono text-xs text-ash">{String(i + 1).padStart(2, "0")}</span>
                 <span className="display text-3xl transition-colors sm:text-4xl group-hover:text-[var(--c)]" style={{ ["--c" as string]: s.accent }}>{s.title}</span>
                 <span className="label hidden sm:block">{s.genre}</span>
-                <span className="text-sm text-ash text-right">{s.creators}</span>
               </a>
             </li>
           ))}

@@ -21,7 +21,6 @@ export type Show = {
   genre: string;
   logline: string;
   about: string[];
-  creators?: string;
   status: string;
   art?: string;
   /** The one colour pulled from the show's own art, used for its accents across the site. */
@@ -46,7 +45,6 @@ const ALL_SHOWS: Show[] = [
       "Struggling actor Jacob Kane assumes the identity of his deceased twin, Jordan, expecting a quiet accounting job. Instead he lands in The REDACTED Unit: an underfunded government agency that discreetly handles bizarre, dangerous cases called Aberrations.",
       "A nostalgic monster-of-the-week format with sharp humour and 2000s procedural flair, with the mystery of Jordan's death running underneath every case.",
     ],
-    creators: "Athan & Jamie Petronis",
     status: "New episodes Fridays",
     art: "/shows/redacted.jpg",
     accent: "#fff200",
@@ -88,7 +86,6 @@ const ALL_SHOWS: Show[] = [
     about: [
       "A collection of analog horror tapes chronicling the history of a strange world filled with even stranger inhabitants.",
     ],
-    creators: "Landon Whisnant",
     status: "Available now",
     art: "/shows/the-seven-planes.jpg",
     accent: "#f2a516",
@@ -108,7 +105,6 @@ const ALL_SHOWS: Show[] = [
       "After a series of traumatic events, including losing his job, Nate and his dog Bella move across the country to the East Coast. Nate documents the whole process as he seeks to try something new and have a fresh start.",
       "The new house appears perfect: huge, loads of room, a yard for Bella to run in… and the rent is unbelievably low. But there’s something not quite right. The house feels… off. Knocking noises in the nighttime, and a locked room in the basement, filled with letters about strange occurrences and ghostly figures.",
     ],
-    creators: "Jamie Petronis",
     status: "Available now",
     art: "/shows/the-cellar-letters.jpg",
     accent: "#e4e25a",
@@ -132,7 +128,6 @@ const ALL_SHOWS: Show[] = [
     about: [
       "Struck by the recent loss of his long-term girlfriend, Matt turns to spelunking for solace. As Matt battles grief, he questions if the caves are playing tricks or if something else lurks within.",
     ],
-    creators: "Athan",
     status: "Series Finale TBD",
     art: "/shows/the-grotto.jpg",
     accent: "#d0231f",
@@ -158,7 +153,6 @@ const ALL_SHOWS: Show[] = [
       "A weekly community-driven event. Listeners send in short scary stories around a theme, and they are read aloud live on stream.",
       "Bring a story, or just pull up a seat by the fire.",
     ],
-    creators: "Athan & Jamie",
     status: "Live every Thursday",
     hidden: true, // off the site for now
     accent: "#ff7a2f",

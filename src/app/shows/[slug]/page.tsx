@@ -85,12 +85,6 @@ export default async function ShowPage({ params }: Props) {
             {show.about.map((p, i) => <p key={i}>{p}</p>)}
           </div>
           <dl className="space-y-6 text-sm">
-            {show.creators && (
-              <div>
-                <dt className="label">{show.kind === "Live" ? "Hosted by" : "Created by"}</dt>
-                <dd className="mt-1 text-bone">{show.creators}</dd>
-              </div>
-            )}
             {!show.comingSoon && (
               <div>
                 <dt className="label">Status</dt>
