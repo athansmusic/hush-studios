@@ -27,13 +27,12 @@ export function ClosingLids({ children, line }: { children: React.ReactNode; lin
       const W = stage.clientWidth, H = stage.clientHeight;
       const travel = Math.max(1, r.height - H);
       const raw = Math.min(1, Math.max(0, -r.top / travel));
-      // The lids finish closing at 70% of the scroll; the rest is a beat in the dark for the line.
+      // The lids finish closing at 70% of the scroll; the rest is a beat in the dark with the line.
       const p = Math.min(1, raw / 0.7);
       const e = p * p * (3 - 2 * p);
-      // The line fades in as the lids meet and out again before the page moves on.
+      // The line fades in as the lids meet and stays; it scrolls away with the page.
       const lineIn = Math.min(1, Math.max(0, (raw - 0.35) / 0.25));
-      const lineOut = Math.min(1, Math.max(0, (raw - 0.85) / 0.15));
-      stage.style.setProperty("--line", (lineIn * (1 - lineOut)).toFixed(3));
+      stage.style.setProperty("--line", lineIn.toFixed(3));
 
       // Where each lid's edge crosses the centre line. The upper lid falls from well above the
       // screen to just below centre; the lower lid rises less far to meet it.
