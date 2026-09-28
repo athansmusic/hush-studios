@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Pulse } from "@/components/Pulse";
+import { Waveform } from "@/components/Waveform";
 import { ShowCard, WorkCard } from "@/components/ShowCard";
 import { SHOWS, WORKS, PEOPLE, STUDIO, getShow } from "@/data/studio";
 
@@ -12,8 +12,9 @@ export default function Home() {
       {/* Hero: almost nothing, on purpose. */}
       <section className="relative flex min-h-[calc(100svh-4rem)] flex-col">
         <h1 className="sr-only">Hush Studios</h1>
-        <div className="flex flex-1 items-center">
-          <Pulse className="rise h-32 w-full sm:h-40" />
+        <div className="rise flex flex-1 flex-col items-center justify-center px-4">
+          <p className="display text-2xl leading-none sm:text-3xl">hush</p>
+          <Waveform className="mt-5 h-20 w-full max-w-2xl text-bone/80 sm:h-24" />
         </div>
         <div className="rise mx-auto grid w-full max-w-7xl gap-6 px-4 pb-10 sm:grid-cols-[minmax(0,30rem)_auto] sm:items-end sm:justify-between sm:px-8" style={{ animationDelay: "0.4s" }}>
           <div>
