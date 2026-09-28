@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import { PEOPLE, SHOWS, STUDIO } from "@/data/studio";
+import { PEOPLE, SHOWS } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "The studio",
@@ -22,9 +22,7 @@ export default function About() {
             stories our listeners send in.
           </p>
           <p>
-            Every series is made with a full cast and a lot of care for sound, and released on the{" "}
-            <a href={STUDIO.network.url} className="link-u text-bone">{STUDIO.network.name}</a> network. We
-            work with independent actors, writers, composers and artists across the world.
+            Every series is made with a full cast and a lot of care for sound. We work with independent actors, writers, composers and artists across the world.
           </p>
         </div>
       </section>

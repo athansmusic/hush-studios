@@ -10,7 +10,6 @@ export const STUDIO = {
   // TODO: swap in the real studio inbox before launch.
   email: "hello@hushstudios.co",
   youtube: "https://www.youtube.com/@hushstudiosofficial",
-  network: { name: "Rusty Quill", url: "https://rustyquill.com/" },
 };
 
 export type LinkOut = { label: string; href: string };

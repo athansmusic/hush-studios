@@ -110,19 +110,17 @@ export default function Home() {
             </p>
             <p>
               Today Hush produces full-cast audio drama with original music, analog horror, and a weekly live
-              show where the community brings the stories. Our series are released on the{" "}
-              <a href={STUDIO.network.url} className="link-u text-bone">{STUDIO.network.name}</a> network.
+              show where the community brings the stories.
             </p>
             <Link href="/about" className="link-u inline-block text-bone">Meet the people behind it</Link>
           </div>
         </div>
 
-        <ul className="mt-16 grid grid-cols-2 gap-px border border-line bg-line sm:grid-cols-4">
+        <ul className="mt-16 grid grid-cols-3 gap-px border border-line bg-line">
           {[
             [String(series.length), "Series"],
             ["1", "Live weekly show"],
             [String(PEOPLE.length), "Core team"],
-            [STUDIO.network.name, "Network"],
           ].map(([n, l]) => (
             <li key={l} className="bg-night px-5 py-6">
               <p className="display text-4xl">{n}</p>

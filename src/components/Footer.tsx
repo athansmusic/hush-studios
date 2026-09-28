@@ -8,7 +8,7 @@ export function Footer() {
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
           <Image src="/brand/hush.avif" alt="Hush Studios" width={96} height={96} className="size-20" />
-          <p className="mt-3 max-w-xs text-sm text-ash">Horror audio, made to be heard in the dark. Released on the {STUDIO.network.name} network.</p>
+          <p className="mt-3 max-w-xs text-sm text-ash">Horror audio, made to be heard in the dark.</p>
         </div>
         <div>
           <p className="label mb-3">Hush Originals</p>
@@ -24,7 +24,6 @@ export function Footer() {
           <p className="label mb-3">Elsewhere</p>
           <ul className="space-y-1.5 text-sm">
             <li><a href={STUDIO.youtube} className="text-bone/80 hover:text-bone">YouTube</a></li>
-            <li><a href={STUDIO.network.url} className="text-bone/80 hover:text-bone">{STUDIO.network.name}</a></li>
             <li><a href={`mailto:${STUDIO.email}`} className="text-bone/80 hover:text-bone">{STUDIO.email}</a></li>
           </ul>
         </div>
