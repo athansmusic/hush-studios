@@ -4,7 +4,7 @@ import { PEOPLE, SHOWS } from "@/data/studio";
 
 export const metadata: Metadata = {
   title: "The studio",
-  description: "Who makes Hush Studios: the creators and crew behind REDACTED, The Grotto, The Cellar Letters and The Seven Planes.",
+  description: "Who makes Hush Studios: the creators and crew behind REDACTED, The Grotto, The Cellar Letters, The Seven Planes and CORRUPTED.",
 };
 
 export default function About() {

@@ -21,7 +21,7 @@ export type Show = {
   genre: string;
   logline: string;
   about: string[];
-  creators: string;
+  creators?: string;
   status: string;
   art?: string;
   /** The one colour pulled from the show's own art, used for its accents across the site. */
@@ -61,29 +61,39 @@ const ALL_SHOWS: Show[] = [
     site: "https://www.theredactedunit.com/",
   },
   {
-    slug: "the-grotto",
-    title: "The Grotto",
+    slug: "corrupted",
+    title: "CORRUPTED",
     kind: "Audio drama",
-    genre: "Liminal horror",
-    logline: "The Grotto is a liminal horror podcast with original music and a full cast that explores the thin line between grief, pain, mourning, and loss.",
+    genre: "Horror anthology",
+    logline: "A horror anthology series set in the REDACTED universe.",
     about: [
-      "Struck by the recent loss of his long-term girlfriend, Matt turns to spelunking for solace. As Matt battles grief, he questions if the caves are playing tricks or if something else lurks within.",
+      "CORRUPTED is an in-universe horror anthology series exploring a new aberration or case each month, set in either the modern day or somewhere in history. Some stories introduce entirely original threats; others expand on aberrations from the main show. And sometimes, the horror stems from familiar legends and stories.",
     ],
-    creators: "Athan",
-    status: "Series Finale TBD",
-    art: "/shows/the-grotto.jpg",
-    accent: "#d0231f",
+    status: "Coming soon",
+    art: "/shows/corrupted.jpg",
+    accent: "#e0303f",
+    listen: [],
+    follow: [],
+    site: "https://theredactedunit.com/corrupted",
+  },
+  {
+    slug: "the-seven-planes",
+    title: "The Seven Planes",
+    kind: "Analog horror",
+    genre: "Analog horror",
+    logline: "Recovered tapes chronicling the history of a strange world, and its even stranger inhabitants.",
+    about: [
+      "A collection of analog horror tapes chronicling the history of a strange world filled with even stranger inhabitants.",
+    ],
+    creators: "Landon Whisnant",
+    status: "Available now",
+    art: "/shows/the-seven-planes.jpg",
+    accent: "#f2a516",
     listen: [
-      { label: "Spotify", href: "https://open.spotify.com/show/6QpNulausPsTkrPV52sCzG" },
-      { label: "Apple Podcasts", href: "https://podcasts.apple.com/us/podcast/the-grotto/id1718495010" },
+      { label: "Spotify", href: "https://open.spotify.com/show/1KbvIbGaohctCN8NVwRT32" },
+      { label: "Apple Podcasts", href: "https://podcasts.apple.com/gb/podcast/the-seven-planes/id1848749565" },
     ],
-    follow: [
-      { label: "Instagram", href: "https://www.instagram.com/thegrottoofficial/" },
-      { label: "X", href: "https://twitter.com/GrottoPod" },
-      { label: "Bluesky", href: "https://bsky.app/profile/thegrottopod.com" },
-      { label: "TikTok", href: "https://www.tiktok.com/@grottopod" },
-    ],
-    site: "https://thegrottopod.com/",
+    follow: [],
   },
   {
     slug: "the-cellar-letters",
@@ -111,23 +121,29 @@ const ALL_SHOWS: Show[] = [
     site: "https://www.thecellarletters.com/",
   },
   {
-    slug: "the-seven-planes",
-    title: "The Seven Planes",
-    kind: "Analog horror",
-    genre: "Analog horror",
-    logline: "Recovered tapes chronicling the history of a strange world, and its even stranger inhabitants.",
+    slug: "the-grotto",
+    title: "The Grotto",
+    kind: "Audio drama",
+    genre: "Horror musical",
+    logline: "The Grotto is a liminal horror podcast with original music and a full cast that explores the thin line between grief, pain, mourning, and loss.",
     about: [
-      "A collection of analog horror tapes chronicling the history of a strange world filled with even stranger inhabitants.",
+      "Struck by the recent loss of his long-term girlfriend, Matt turns to spelunking for solace. As Matt battles grief, he questions if the caves are playing tricks or if something else lurks within.",
     ],
-    creators: "Landon Whisnant",
-    status: "Available now",
-    art: "/shows/the-seven-planes.jpg",
-    accent: "#f2a516",
+    creators: "Athan",
+    status: "Series Finale TBD",
+    art: "/shows/the-grotto.jpg",
+    accent: "#d0231f",
     listen: [
-      { label: "Spotify", href: "https://open.spotify.com/show/1KbvIbGaohctCN8NVwRT32" },
-      { label: "Apple Podcasts", href: "https://podcasts.apple.com/gb/podcast/the-seven-planes/id1848749565" },
+      { label: "Spotify", href: "https://open.spotify.com/show/6QpNulausPsTkrPV52sCzG" },
+      { label: "Apple Podcasts", href: "https://podcasts.apple.com/us/podcast/the-grotto/id1718495010" },
     ],
-    follow: [],
+    follow: [
+      { label: "Instagram", href: "https://www.instagram.com/thegrottoofficial/" },
+      { label: "X", href: "https://twitter.com/GrottoPod" },
+      { label: "Bluesky", href: "https://bsky.app/profile/thegrottopod.com" },
+      { label: "TikTok", href: "https://www.tiktok.com/@grottopod" },
+    ],
+    site: "https://thegrottopod.com/",
   },
   {
     slug: "frights-by-fire",
@@ -162,9 +178,9 @@ export type Person = { name: string; role: string; image?: string };
 export const PEOPLE: Person[] = [
   { name: "Jamie Petronis", role: "Co-creator and Head of Content", image: "/people/jamie-petronis.png" },
   { name: "Athan", role: "Co-creator and Head of Studio", image: "/people/athan.png" },
-  { name: "Derek Moreland", role: "Head of Production" },
-  { name: "Natalie Light", role: "Creative Director" },
-  { name: "Landon Whisnant", role: "Lead Sound Designer" },
+  { name: "Derek Moreland", role: "Head of Production", image: "/people/derek-moreland.png" },
+  { name: "Natalie Light", role: "Creative Director", image: "/people/natalie-light.png" },
+  { name: "Landon Whisnant", role: "Lead Sound Designer", image: "/people/landon-whisnant.png" },
 ];
 
 /** Additional Works: projects Hush contributed to but did not originate (production consulting, collaborations, etc). */
@@ -180,7 +196,7 @@ export type Work = {
   listen?: LinkOut[];
   follow?: LinkOut[];
   site?: string;
-  /** Unreleased: the card shows as "Coming soon" everywhere, but its page is only built locally. */
+  /** Unreleased: the card and page say "Coming soon". */
   comingSoon?: boolean;
 };
 
@@ -196,10 +212,8 @@ export const WORKS: Work[] = [
     art: "/works/see-you-in-fahlstaff.jpg",
     accent: "#b01010",
     site: "https://www.seeyouinfahlstaff.com/",
-    comingSoon: true, // not out yet; delete this line to publish its page
+    comingSoon: true, // delete once it is out
   },
 ];
 
-/** Whether a work has a page: released ones always, unreleased ones only when running locally. */
-export const hasPage = (w: Work) => !w.comingSoon || process.env.NODE_ENV === "development";
-export const getWork = (slug: string) => WORKS.find((w) => w.slug === slug && hasPage(w));
+export const getWork = (slug: string) => WORKS.find((w) => w.slug === slug);

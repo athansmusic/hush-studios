@@ -2,13 +2,12 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { WORKS, getWork, hasPage } from "@/data/studio";
+import { WORKS, getWork } from "@/data/studio";
 
 type Props = { params: Promise<{ slug: string }> };
 
-// Unreleased works have no page in production: never built there, so they 404.
 export const dynamicParams = false;
-export const generateStaticParams = () => WORKS.filter(hasPage).map((w) => ({ slug: w.slug }));
+export const generateStaticParams = () => WORKS.map((w) => ({ slug: w.slug }));
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const work = getWork((await params).slug);
@@ -17,7 +16,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     title: work.title,
     description: `${work.title}, with Hush Studios as ${work.role}.`,
     openGraph: work.art ? { images: [{ url: work.art }] } : undefined,
-    robots: work.comingSoon ? { index: false, follow: false } : undefined,
   };
 }
 
@@ -33,12 +31,6 @@ export default async function WorkPage({ params }: Props) {
 
   return (
     <div style={{ ["--accent" as string]: work.accent }}>
-      {work.comingSoon && (
-        <p className="bg-bone px-4 py-2 text-center font-mono text-xs uppercase tracking-widest text-night">
-          Unreleased · this page is only visible locally · the live site shows the card as Coming soon
-        </p>
-      )}
-
       <section className="relative overflow-hidden">
         <div
           aria-hidden
@@ -50,6 +42,9 @@ export default async function WorkPage({ params }: Props) {
             <Link href="/#works" className="label hover:text-bone">← Additional Works</Link>
             <p className="label mt-10" style={{ color: work.accent }}>{work.genre ?? work.role}</p>
             <h1 className="display mt-4 text-[clamp(3.5rem,10vw,8.5rem)]">{work.title}</h1>
+            {work.comingSoon && (
+              <p className="mt-6 inline-block bg-bone px-3 py-1.5 font-mono text-xs uppercase tracking-widest text-night">Coming soon</p>
+            )}
 
             {work.listen && work.listen.length > 0 && (
               <div className="mt-9 flex flex-wrap gap-3">
@@ -79,7 +74,7 @@ export default async function WorkPage({ params }: Props) {
         <div className="grid gap-12 border-t border-line pt-12 lg:grid-cols-[1fr_20rem]">
           <div className="max-w-2xl space-y-5 text-lg text-bone/85">
             {work.about?.length ? work.about.map((p, i) => <p key={i}>{p}</p>) : dev && <Todo>No description yet. Add `about` to this work in src/data/studio.ts.</Todo>}
-            {dev && !work.listen?.length && <Todo>No listen links yet. Add `listen` when it is out.</Todo>}
+            {dev && !work.comingSoon && !work.listen?.length && <Todo>No listen links yet.</Todo>}
           </div>
           <dl className="space-y-6 text-sm">
             <div>

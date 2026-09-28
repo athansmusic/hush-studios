@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { hasPage, type Show, type Work } from "@/data/studio";
+import type { Show, Work } from "@/data/studio";
 
 export function ShowCard({ show, priority = false }: { show: Show; priority?: boolean }) {
   return (
@@ -57,10 +57,7 @@ export function WorkCard({ work }: { work: Work }) {
       <p className="mt-1 text-sm text-ash">{work.role}</p>
     </>
   );
-  const style = { ["--accent" as string]: work.accent };
-  return hasPage(work) ? (
-    <Link href={`/works/${work.slug}`} style={style} className="group block">{body}</Link>
-  ) : (
-    <div style={style}>{body}</div>
+  return (
+    <Link href={`/works/${work.slug}`} style={{ ["--accent" as string]: work.accent }} className="group block">{body}</Link>
   );
 }

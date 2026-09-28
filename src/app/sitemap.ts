@@ -6,6 +6,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: STUDIO.url },
     { url: `${STUDIO.url}/about` },
     ...SHOWS.map((s) => ({ url: `${STUDIO.url}/shows/${s.slug}` })),
-    ...WORKS.filter((w) => !w.comingSoon).map((w) => ({ url: `${STUDIO.url}/works/${w.slug}` })),
+    ...WORKS.map((w) => ({ url: `${STUDIO.url}/works/${w.slug}` })),
   ];
 }
