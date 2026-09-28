@@ -11,13 +11,15 @@ const ASH = "#9d978d";
 const root = process.cwd();
 
 async function fonts() {
-  const [regular, italic] = await Promise.all([
+  const [regular, italic, mark] = await Promise.all([
     readFile(join(root, "src/og/InstrumentSerif-Regular.ttf")),
     readFile(join(root, "src/og/InstrumentSerif-Italic.ttf")),
+    readFile(join(root, "src/og/Poppins-Medium.ttf")),
   ]);
   return [
     { name: "Serif", data: regular, style: "normal" as const, weight: 400 as const },
     { name: "Serif", data: italic, style: "italic" as const, weight: 400 as const },
+    { name: "Mark", data: mark, style: "normal" as const, weight: 500 as const },
   ];
 }
 
@@ -40,18 +42,37 @@ function Bars({ count, height, color }: { count: number; height: number; color: 
   );
 }
 
+/** A still frame of the site's VHS "hush": colour passes out of register, scanlines in the letters. */
+function VhsHush({ size }: { size: number }) {
+  const layer = { position: "absolute" as const, top: 0, left: 0, fontFamily: "Mark", fontSize: size, lineHeight: 1, letterSpacing: -0.03 * size };
+  return (
+    <div style={{ display: "flex", position: "relative", fontFamily: "Mark", fontSize: size, lineHeight: 1, letterSpacing: -0.03 * size }}>
+      <div style={{ ...layer, color: "#ff4fa3", opacity: 0.9, transform: `translateX(${-0.05 * size}px)` }}>hush</div>
+      <div style={{ ...layer, color: "#7a5cff", opacity: 0.9, transform: `translateX(${0.05 * size}px)` }}>hush</div>
+      <div
+        style={{
+          display: "flex",
+          color: "transparent",
+          backgroundImage: `repeating-linear-gradient(to bottom, ${BONE} 0px, ${BONE} 2px, rgba(236,231,222,0.45) 2px, rgba(236,231,222,0.45) 3px)`,
+          backgroundClip: "text",
+        }}
+      >
+        hush
+      </div>
+    </div>
+  );
+}
+
 /** Home and anything without its own card. */
 export async function studioCard() {
-  const [logo, wordmark] = await Promise.all([
-    dataUri(join(root, "src/og/hush.png"), "image/png"),
-    dataUri(join(root, "src/og/hush-wordmark.png"), "image/png"),
-  ]);
+  const logo = await dataUri(join(root, "src/og/hush.png"), "image/png");
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: NIGHT, fontFamily: "Serif", color: BONE }}>
         <img src={logo} width={120} height={120} style={{ position: "absolute", top: 48, left: 56 }} />
-        <img src={wordmark} width={234} height={96} />
-        <div style={{ display: "flex", marginTop: 36 }}>
+        <VhsHush size={104} />
+        <div style={{ marginTop: 18, fontSize: 34, fontStyle: "italic", color: ASH }}>stories you don&apos;t have to see to believe</div>
+        <div style={{ display: "flex", marginTop: 30 }}>
           <Bars count={110} height={110} color={BONE} />
         </div>
         <div style={{ position: "absolute", bottom: 52, left: 56, display: "flex", fontSize: 40 }}>
