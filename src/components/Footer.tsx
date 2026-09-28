@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { SHOWS, STUDIO } from "@/data/studio";
 
@@ -6,7 +7,7 @@ export function Footer() {
     <footer className="border-t border-line mt-24">
       <div className="mx-auto grid max-w-7xl gap-10 px-4 py-14 sm:px-8 md:grid-cols-[1.4fr_1fr_1fr]">
         <div>
-          <p className="display text-5xl">Hush.</p>
+          <Image src="/brand/hush.avif" alt="Hush Studios" width={96} height={96} className="size-20" />
           <p className="mt-3 max-w-xs text-sm text-ash">Horror audio, made to be heard in the dark. Released on the {STUDIO.network.name} network.</p>
         </div>
         <div>
