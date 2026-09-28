@@ -34,7 +34,10 @@ export default async function WorkPage({ params }: Props) {
         listen: work.listen ?? [],
         follow: work.follow ?? [],
         site: work.site,
-        facts: [{ label: "Hush Studios", value: work.role }],
+        facts: [
+          ...(work.createdBy ? [{ label: "Created by", value: work.createdBy.name, href: work.createdBy.href }] : []),
+          { label: "Hush Studios", value: work.role },
+        ],
         more: SHOWS.slice(0, 3),
         href: `/works/${work.slug}`,
       }}

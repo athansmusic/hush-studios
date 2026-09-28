@@ -198,6 +198,8 @@ export type Work = {
   logline?: string;
   /** Hush's credit on the project. */
   role: string;
+  /** Whose project it is, for work Hush contributed to. */
+  createdBy?: { name: string; href?: string };
   art?: string;
   accent: string;
   about?: string[];
@@ -214,6 +216,7 @@ export const WORKS: Work[] = [
     title: "See You in Fahlstaff",
     genre: "Horror Anthology*",
     role: "Production Consultants",
+    createdBy: { name: "Curiously Resonant", href: "https://curiouslyresonant.com/" },
     about: [
       "Something is changing in the city of Fahlstaff. While it’s always attracted the bizarre, the strange, the frightening, the monstrous... lately, something feels…different. Was that house there before? Are the trees listening? Is there something hiding in your blindspot?",
     ],

@@ -20,7 +20,7 @@ export type Production = {
   follow: LinkOut[];
   site?: string;
   /** Extra facts for the side panel, such as status or Hush's credit. */
-  facts: { label: string; value: string }[];
+  facts: { label: string; value: string; href?: string }[];
   links?: { heading: string; label: string; href: string }[];
   more: Show[];
   /** From the RSS feed, newest first. */
@@ -99,7 +99,7 @@ export function ProductionPage({ p }: { p: Production }) {
             {p.facts.map((f) => (
               <div key={f.label}>
                 <dt className="label">{f.label}</dt>
-                <dd className="mt-1 text-bone">{f.value}</dd>
+                <dd className="mt-1 text-bone">{f.href ? <a href={f.href} className="link-u">{f.value}</a> : f.value}</dd>
               </div>
             ))}
             {p.site && (
