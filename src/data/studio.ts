@@ -185,6 +185,7 @@ export type Work = {
   slug: string;
   title: string;
   genre?: string;
+  logline?: string;
   /** Hush's credit on the project. */
   role: string;
   art?: string;
