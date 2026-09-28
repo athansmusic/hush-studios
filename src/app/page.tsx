@@ -1,3 +1,4 @@
+import Image from "next/image";
 import Link from "next/link";
 import { Waveform } from "@/components/Waveform";
 import { ShowIndex } from "@/components/ShowIndex";
@@ -12,7 +13,7 @@ export default function Home() {
       <section className="relative flex min-h-[calc(100svh-4rem)] flex-col">
         <h1 className="sr-only">Hush Studios</h1>
         <div className="rise flex flex-1 flex-col items-center justify-center px-4">
-          <p className="display text-2xl leading-none sm:text-3xl">hush</p>
+          <Image src="/brand/hush-wordmark.png" alt="hush" width={234} height={96} priority className="h-10 w-auto sm:h-12" />
           <Waveform className="mt-5 h-20 w-full max-w-2xl text-bone/80 sm:h-24" />
         </div>
         <div className="rise mx-auto grid w-full max-w-7xl gap-6 px-4 pb-10 sm:grid-cols-[minmax(0,30rem)_auto] sm:items-end sm:justify-between sm:px-8" style={{ animationDelay: "0.4s" }}>

@@ -42,12 +42,15 @@ function Bars({ count, height, color }: { count: number; height: number; color: 
 
 /** Home and anything without its own card. */
 export async function studioCard() {
-  const logo = await dataUri(join(root, "src/og/hush.png"), "image/png");
+  const [logo, wordmark] = await Promise.all([
+    dataUri(join(root, "src/og/hush.png"), "image/png"),
+    dataUri(join(root, "src/og/hush-wordmark.png"), "image/png"),
+  ]);
   return new ImageResponse(
     (
       <div style={{ width: "100%", height: "100%", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", background: NIGHT, fontFamily: "Serif", color: BONE }}>
         <img src={logo} width={120} height={120} style={{ position: "absolute", top: 48, left: 56 }} />
-        <div style={{ fontSize: 84, lineHeight: 1 }}>hush</div>
+        <img src={wordmark} width={234} height={96} />
         <div style={{ display: "flex", marginTop: 36 }}>
           <Bars count={110} height={110} color={BONE} />
         </div>
