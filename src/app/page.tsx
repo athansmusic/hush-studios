@@ -1,6 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
 import { Waveform } from "@/components/Waveform";
+import { VhsMark } from "@/components/VhsMark";
 import { ShowIndex } from "@/components/ShowIndex";
 import { Reveal } from "@/components/Reveal";
 import { SHOWS, WORKS, STUDIO, showItem, workItem } from "@/data/studio";
@@ -13,7 +13,7 @@ export default function Home() {
       <section className="relative flex min-h-[calc(100svh-4rem)] flex-col">
         <h1 className="sr-only">Hush Studios</h1>
         <div className="rise flex flex-1 flex-col items-center justify-center px-4">
-          <Image src="/brand/hush-wordmark.png" alt="hush" width={234} height={96} priority className="h-10 w-auto sm:h-12" />
+          <VhsMark className="text-[2.75rem] sm:text-[3.25rem]" />
           <p className="display mt-4 text-center text-xl italic text-ash sm:text-2xl">stories you don&apos;t have to see to believe</p>
           <Waveform className="mt-5 h-20 w-full max-w-2xl text-bone/80 sm:h-24" />
         </div>
