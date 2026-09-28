@@ -251,3 +251,26 @@ body {
   .vhs::before { transform: translateX(-0.05em); }
   .vhs::after { transform: translateX(0.05em); }
 }
+
+/* ── Closing lids (home hero) ─────────────────────── */
+.lids-stage { --p: 0; }
+.lids-sky {
+  background:
+    radial-gradient(ellipse 60% 45% at 50% 48%, #3b2560 0%, transparent 70%),
+    #1a1530;
+}
+/* The hero fades out from under the lids as they close. */
+.lids-content {
+  opacity: clamp(0, calc(1 - var(--p) * 1.6), 1);
+  transform: scale(calc(1 - var(--p) * 0.05));
+}
+/* Darkness gathering toward the lids, the way a closing eye loses the edges first. */
+.lids-shade {
+  background: linear-gradient(to bottom, #000 0%, transparent 35%, transparent 65%, #000 100%);
+  opacity: calc(var(--p) * 0.9);
+}
+/* "close your eyes." surfaces as they shut, and stays on the dark. */
+.lids-line {
+  opacity: var(--line, 0);
+  transform: translateY(-50%);
+}

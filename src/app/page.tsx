@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { Waveform } from "@/components/Waveform";
 import { VhsMark } from "@/components/VhsMark";
+import { ClosingLids } from "@/components/ClosingLids";
 import { ShowIndex } from "@/components/ShowIndex";
 import { Reveal } from "@/components/Reveal";
 import { SHOWS, WORKS, STUDIO, showItem, workItem } from "@/data/studio";
@@ -10,7 +11,13 @@ export default function Home() {
   return (
     <>
       {/* Hero: almost nothing, on purpose. */}
-      <section className="relative flex min-h-[calc(100svh-4rem)] flex-col">
+      <ClosingLids
+        line={
+          <p className="display text-3xl text-white sm:text-5xl">
+            <em>close your eyes.</em>
+          </p>
+        }
+      >
         <h1 className="sr-only">Hush Studios</h1>
         <div className="rise flex flex-1 flex-col items-center justify-center px-4">
           <VhsMark className="text-[2.75rem] sm:text-[3.25rem]" />
@@ -18,16 +25,13 @@ export default function Home() {
           <Waveform className="mt-5 h-20 w-full max-w-2xl text-bone/80 sm:h-24" />
         </div>
         <div className="rise mx-auto grid w-full max-w-7xl gap-6 px-4 pb-10 sm:grid-cols-[minmax(0,30rem)_auto] sm:items-end sm:justify-between sm:px-8" style={{ animationDelay: "0.4s" }}>
-          <p className="display text-2xl sm:text-3xl">
-            <em className="text-ash">close your eyes.</em>
-          </p>
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap gap-3 sm:col-start-2">
             <Link href="#originals" className="bg-bone px-4 py-2.5 text-sm font-medium text-night transition hover:bg-white">
               Hear the shows
             </Link>
           </div>
         </div>
-      </section>
+      </ClosingLids>
 
       {/* Hush Originals */}
       <section id="originals" className="scroll-mt-16 pt-24">
