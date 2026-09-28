@@ -156,8 +156,8 @@ export const getShow = (slug: string) => SHOWS.find((s) => s.slug === slug);
 export type Person = { name: string; role: string; image?: string };
 
 export const PEOPLE: Person[] = [
-  { name: "Athan", role: "Co-founder", image: "/people/athan.png" },
-  { name: "Jamie Petronis", role: "Co-founder", image: "/people/jamie-petronis.png" },
+  { name: "Jamie Petronis", role: "Co-creator and Head of Content", image: "/people/jamie-petronis.png" },
+  { name: "Athan", role: "Co-creator and Head of Studio", image: "/people/athan.png" },
   { name: "Derek Moreland", role: "Head of Production" },
   { name: "Natalie Light", role: "Creative Director" },
   { name: "Landon Whisnant", role: "Lead Sound Designer" },
