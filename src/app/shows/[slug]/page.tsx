@@ -17,7 +17,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: show.title,
     description: `${show.title}: ${show.logline} A ${show.genre.toLowerCase()} production from Hush Studios.`,
-    openGraph: show.art ? { images: [{ url: show.art }] } : undefined,
   };
 }
 

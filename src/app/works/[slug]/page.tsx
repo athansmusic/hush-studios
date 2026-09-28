@@ -14,7 +14,6 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: work.title,
     description: `${work.title}, with Hush Studios as ${work.role}.`,
-    openGraph: work.art ? { images: [{ url: work.art }] } : undefined,
   };
 }
 
