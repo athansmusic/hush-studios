@@ -7,8 +7,8 @@ function siteUrl(raw = process.env.NEXT_PUBLIC_SITE_URL?.trim()) {
 export const STUDIO = {
   name: "Hush Studios",
   url: siteUrl(),
-  // TODO: swap in the real studio inbox before launch.
-  email: "hello@hushstudios.co",
+  // Temporary until a hushstudios.co inbox exists.
+  email: "crew@theredactedunit.com",
   youtube: "https://www.youtube.com/@hushstudiosofficial",
 };
 
