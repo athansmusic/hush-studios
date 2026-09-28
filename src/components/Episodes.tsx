@@ -41,7 +41,7 @@ export function Episodes({ episodes, show }: { episodes: Episode[]; show: ShowIn
       <ol>
         {episodes.slice(0, shown).map((e) => {
           const current = track?.id === e.id;
-          const label = e.type === "trailer" ? "Trailer" : e.type === "bonus" ? "Bonus" : e.number ? `${e.season ? `S${e.season} · ` : ""}Ep ${e.number}` : null;
+          const label = e.type === "trailer" ? "Trailer" : e.type === "bonus" ? "Bonus" : null;
           return (
             <li key={e.id} className="border-b border-line">
               <div className="group grid grid-cols-[auto_1fr] gap-x-5 py-6 sm:grid-cols-[auto_1fr_auto] sm:items-start">
