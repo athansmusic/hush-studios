@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { Waveform } from "@/components/Waveform";
-import { ShowCard, WorkCard } from "@/components/ShowCard";
+import { WorkCard } from "@/components/ShowCard";
+import { ShowFeature } from "@/components/ShowFeature";
+import { Reveal } from "@/components/Reveal";
 import { SHOWS, WORKS, STUDIO } from "@/data/studio";
 
 export default function Home() {
@@ -32,16 +34,16 @@ export default function Home() {
       </section>
 
       {/* Hush Originals */}
-      <section id="originals" className="mx-auto max-w-7xl scroll-mt-20 px-4 pt-24 sm:px-8">
-        <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
-          <h2 className="display text-5xl sm:text-6xl">Hush Originals</h2>
-          <p className="label">{String(SHOWS.length).padStart(2, "0")} originals</p>
-        </div>
-        <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-          {SHOWS.map((s, i) => (
-            <ShowCard key={s.slug} show={s} priority={i < 2} />
-          ))}
-        </div>
+      <section id="originals" className="scroll-mt-16 pt-24">
+        <Reveal className="mx-auto max-w-7xl px-4 sm:px-8">
+          <div className="flex flex-wrap items-end justify-between gap-4 border-b border-line pb-5">
+            <h2 className="display text-5xl sm:text-6xl">Hush Originals</h2>
+            <p className="label">{String(SHOWS.length).padStart(2, "0")} originals</p>
+          </div>
+        </Reveal>
+        {SHOWS.map((s, i) => (
+          <ShowFeature key={s.slug} show={s} index={i} />
+        ))}
       </section>
 
       {/* Additional Works: hidden in production until there is something to list. */}
@@ -53,7 +55,7 @@ export default function Home() {
           </div>
           {WORKS.length > 0 ? (
             <div className="mt-10 grid gap-x-6 gap-y-12 sm:grid-cols-2 lg:grid-cols-4">
-              {WORKS.map((w) => <WorkCard key={w.title} work={w} />)}
+              {WORKS.map((w, i) => <Reveal key={w.slug} delay={i * 0.08}><WorkCard work={w} /></Reveal>)}
             </div>
           ) : (
             <p className="mt-10 border border-dashed border-line p-8 font-mono text-sm text-ash">
