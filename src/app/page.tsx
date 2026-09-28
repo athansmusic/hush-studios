@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HushMark } from "@/components/HushMark";
+import { Heartbeat } from "@/components/Heartbeat";
 import { ShowCard, WorkCard } from "@/components/ShowCard";
 import { SHOWS, WORKS, PEOPLE, STUDIO, getShow } from "@/data/studio";
 
@@ -13,9 +13,7 @@ export default function Home() {
       <section className="relative overflow-hidden">
         <div className="mx-auto max-w-7xl px-4 pt-14 pb-10 sm:px-8 sm:pt-20">
           <h1 className="sr-only">Hush Studios</h1>
-          <div className="rise">
-            <HushMark />
-          </div>
+          <Heartbeat className="rise h-40 sm:h-60" />
           <div className="rise mt-10 grid gap-8 sm:grid-cols-[minmax(0,34rem)_auto] sm:items-end sm:justify-between" style={{ animationDelay: "0.25s" }}>
             <div>
               <p className="display text-4xl sm:text-5xl">
