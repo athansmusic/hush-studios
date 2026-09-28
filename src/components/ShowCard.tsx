@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import type { Show, Work } from "@/data/studio";
+import { hasPage, type Show, type Work } from "@/data/studio";
 
 export function ShowCard({ show, priority = false }: { show: Show; priority?: boolean }) {
   return (
@@ -42,16 +42,25 @@ export function ShowCard({ show, priority = false }: { show: Show; priority?: bo
 export function WorkCard({ work }: { work: Work }) {
   const body = (
     <>
-      <div className="relative aspect-square overflow-hidden bg-night-3 ring-1 ring-line transition group-hover:ring-bone/60">
+      <div className="relative aspect-square overflow-hidden bg-night-3 ring-1 ring-line transition-[box-shadow] duration-500 group-hover:ring-[var(--accent)]">
         {work.art ? (
-          <Image src={work.art} alt={`${work.title} art`} fill sizes="(min-width: 1024px) 20vw, (min-width: 640px) 50vw, 100vw" className="object-cover" />
+          <Image src={work.art} alt={`${work.title} art`} fill sizes="(min-width: 1024px) 25vw, (min-width: 640px) 50vw, 100vw" className="object-cover transition duration-700 ease-out group-hover:scale-[1.03]" />
         ) : (
           <span className="display absolute inset-0 flex items-center justify-center p-6 text-center text-4xl">{work.title}</span>
         )}
+        {work.comingSoon && (
+          <span className="absolute left-3 top-3 bg-bone px-2 py-1 font-mono text-[0.65rem] uppercase tracking-widest text-night">Coming soon</span>
+        )}
       </div>
       <h3 className="display mt-4 text-3xl">{work.title}</h3>
-      <p className="label mt-1">{work.role}</p>
+      {work.genre && <p className="label mt-1">{work.genre}</p>}
+      <p className="mt-1 text-sm text-ash">{work.role}</p>
     </>
   );
-  return work.href ? <a href={work.href} className="group block">{body}</a> : <div>{body}</div>;
+  const style = { ["--accent" as string]: work.accent };
+  return hasPage(work) ? (
+    <Link href={`/works/${work.slug}`} style={style} className="group block">{body}</Link>
+  ) : (
+    <div style={style}>{body}</div>
+  );
 }

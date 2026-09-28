@@ -169,8 +169,38 @@ export const PEOPLE: Person[] = [
 ];
 
 /** Additional Works: projects Hush contributed to but did not originate (production consulting, collaborations, etc). */
-export type Work = { title: string; role: string; href?: string; art?: string };
+export type Work = {
+  slug: string;
+  title: string;
+  genre?: string;
+  /** Hush's credit on the project. */
+  role: string;
+  art?: string;
+  accent: string;
+  about?: string[];
+  listen?: LinkOut[];
+  follow?: LinkOut[];
+  site?: string;
+  /** Unreleased: the card shows as "Coming soon" everywhere, but its page is only built locally. */
+  comingSoon?: boolean;
+};
 
 export const WORKS: Work[] = [
-  { title: "See You in Fahlstaff", role: "Production Consultants", art: "/works/see-you-in-fahlstaff.jpg" },
+  {
+    slug: "see-you-in-fahlstaff",
+    title: "See You in Fahlstaff",
+    genre: "Horror Anthology*",
+    role: "Production Consultants",
+    about: [
+      "Something is changing in the city of Fahlstaff. While it’s always attracted the bizarre, the strange, the frightening, the monstrous... lately, something feels…different. Was that house there before? Are the trees listening? Is there something hiding in your blindspot?",
+    ],
+    art: "/works/see-you-in-fahlstaff.jpg",
+    accent: "#b01010",
+    site: "https://www.seeyouinfahlstaff.com/",
+    comingSoon: true, // not out yet; delete this line to publish its page
+  },
 ];
+
+/** Whether a work has a page: released ones always, unreleased ones only when running locally. */
+export const hasPage = (w: Work) => !w.comingSoon || process.env.NODE_ENV === "development";
+export const getWork = (slug: string) => WORKS.find((w) => w.slug === slug && hasPage(w));

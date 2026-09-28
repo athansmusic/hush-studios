@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Waveform } from "@/components/Waveform";
 import { ShowCard, WorkCard } from "@/components/ShowCard";
-import { SHOWS, WORKS, PEOPLE, STUDIO } from "@/data/studio";
+import { SHOWS, WORKS, STUDIO } from "@/data/studio";
 
 export default function Home() {
 
@@ -62,41 +62,6 @@ export default function Home() {
           )}
         </section>
       )}
-
-      {/* Studio */}
-      <section className="mx-auto mt-32 max-w-7xl px-4 sm:px-8">
-        <div className="grid gap-12 lg:grid-cols-[1fr_1.1fr]">
-          <div>
-            <p className="label">The studio</p>
-            <p className="display mt-5 text-4xl sm:text-5xl">
-              Fear is mostly <em className="text-ash">listening</em>: the creak in the next room, the breath on the tape.
-            </p>
-          </div>
-          <div className="space-y-5 text-bone/80 lg:pt-10">
-            <p>
-              Hush started with two creators and two shows: Athan&apos;s <em>The Grotto</em> and Jamie
-              Petronis&apos;s <em>The Cellar Letters</em>. Together they built <em>REDACTED</em>, and the studio
-              grew around it.
-            </p>
-            <p>
-              Today Hush produces full-cast audio drama with original music, alongside analog horror.
-            </p>
-            <Link href="/about" className="link-u inline-block text-bone">Meet the people behind it</Link>
-          </div>
-        </div>
-
-        <ul className="mt-16 grid grid-cols-2 gap-px border border-line bg-line">
-          {[
-            [String(SHOWS.length), "Series"],
-            [String(PEOPLE.length), "Core team"],
-          ].map(([n, l]) => (
-            <li key={l} className="bg-night px-5 py-6">
-              <p className="display text-4xl">{n}</p>
-              <p className="label mt-2">{l}</p>
-            </li>
-          ))}
-        </ul>
-      </section>
 
       {/* Contact */}
       <section id="contact" className="mx-auto mt-32 max-w-7xl scroll-mt-20 px-4 sm:px-8">
