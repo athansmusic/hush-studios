@@ -27,6 +27,11 @@ export const CARD = {
     { label: "Bluesky", handle: "@athansmusic.bsky.social", href: "https://bsky.app/profile/athansmusic.bsky.social", ...brand(siBluesky) },
     { label: "LinkedIn", handle: "johnathanmagno", href: "https://www.linkedin.com/in/johnathanmagno/", icon: "linkedin", color: "#0a66c2" },
   ] satisfies CardLink[],
+  shows: [
+    { label: "REDACTED", sub: "Horror comedy audio drama", href: "https://tru.show/", art: "/shows/redacted.jpg" },
+    { label: "REDACTED partners", sub: "Show stats and sponsorship", href: "https://tru.show/partner", art: "/shows/redacted.jpg" },
+    { label: "The Grotto", sub: "Liminal horror podcast", href: "https://www.thegrottopod.com/", art: "/shows/the-grotto.jpg" },
+  ],
   music: [
     { label: "Spotify", handle: "Athan", href: "https://open.spotify.com/artist/3XCFEDx0MwDcKKTGsfGCzd", ...brand(siSpotify) },
     { label: "Apple Music", handle: "Athan", href: "https://music.apple.com/us/artist/athan/1511495649", ...brand(siApplemusic) },

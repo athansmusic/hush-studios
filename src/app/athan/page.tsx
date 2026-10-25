@@ -101,6 +101,23 @@ export default function AthanCard() {
             <span className="text-xs text-bone/50">{CARD.email}</span>
           </a>
 
+          <p className="label mt-4 text-center">Shows</p>
+          {CARD.shows.map((s) => (
+            <a
+              key={s.href}
+              href={s.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="relative flex min-h-14 items-center justify-center rounded-2xl border border-white/10 bg-white/[0.06] px-14 py-3 text-center leading-tight backdrop-blur-sm transition hover:-translate-y-0.5 hover:border-bone/40 hover:bg-white/[0.1]"
+            >
+              <Image src={s.art} alt="" width={32} height={32} className="absolute left-4 size-8 rounded-lg object-cover" />
+              <span>
+                <span className="block font-medium">{s.label}</span>
+                <span className="block text-xs text-bone/50">{s.sub}</span>
+              </span>
+            </a>
+          ))}
+
           <p className="label mt-4 text-center">My music</p>
           {CARD.music.map((m) => (
             <LinkButton key={m.label} link={m} sub="Listen to Athan" />
