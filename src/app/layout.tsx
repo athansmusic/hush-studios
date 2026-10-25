@@ -6,6 +6,7 @@ import { Footer } from "@/components/Footer";
 import { STUDIO } from "@/data/studio";
 import { PlayerProvider } from "@/lib/player";
 import { PlayerBar } from "@/components/PlayerBar";
+import { Chrome } from "@/components/Chrome";
 
 const geist = Geist({ subsets: ["latin"], variable: "--font-geist", display: "swap" });
 const geistMono = Geist_Mono({ subsets: ["latin"], variable: "--font-geist-mono", display: "swap" });
@@ -32,10 +33,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:top-3 focus:left-3 focus:z-[70] focus:bg-bone focus:text-night focus:px-3 focus:py-2">
             Skip to content
           </a>
-          <Header />
+          <Chrome><Header /></Chrome>
           <main id="main" className="flex-1">{children}</main>
-          <Footer />
-          <PlayerBar />
+          <Chrome>
+            <Footer />
+            <PlayerBar />
+          </Chrome>
         </PlayerProvider>
       </body>
     </html>
