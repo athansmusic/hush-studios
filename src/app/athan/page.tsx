@@ -118,11 +118,6 @@ export default function AthanCard() {
             </a>
           ))}
 
-          <p className="label mt-4 text-center">My music</p>
-          {CARD.music.map((m) => (
-            <LinkButton key={m.label} link={m} sub="Listen to Athan" />
-          ))}
-
           <p className="label mt-4 text-center">Work</p>
           <LinkButton link={CARD.social.find((s) => s.label === "LinkedIn")!} sub={CARD.fullName} />
           <a
@@ -135,6 +130,11 @@ export default function AthanCard() {
               <span className="block text-xs text-bone/50">REDACTED, The Grotto and more</span>
             </span>
           </a>
+
+          <p className="label mt-4 text-center">My music</p>
+          {CARD.music.map((m) => (
+            <LinkButton key={m.label} link={m} sub="Listen to Athan" />
+          ))}
         </div>
 
         <a
