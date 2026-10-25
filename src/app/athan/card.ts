@@ -31,7 +31,7 @@ export const CARD = {
   video: { id: "xkpg_foIbxQ", title: "Eli Reyes - I Saw the TV Glow" },
   shows: [
     { label: "REDACTED", sub: "Horror comedy audio drama", href: "https://tru.show/", art: "/shows/redacted.jpg" },
-    { label: "REDACTED partners", sub: "Show stats and sponsorship", href: "https://tru.show/partner", art: "/shows/redacted.jpg" },
+    { label: "REDACTED stats", sub: "Audience numbers and sponsorship", href: "https://tru.show/partner", art: "/shows/redacted.jpg" },
     { label: "The Grotto", sub: "Liminal horror podcast", href: "https://www.thegrottopod.com/", art: "/shows/the-grotto.jpg" },
   ],
   music: [

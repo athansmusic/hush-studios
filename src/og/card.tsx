@@ -116,10 +116,7 @@ export async function personCard(p: { name: string; fullName: string; role: stri
           <div style={{ fontSize: 150, lineHeight: 0.9, letterSpacing: 2 }}>{p.name}</div>
           <div style={{ fontSize: 44, marginTop: 18 }}>{p.fullName}</div>
           <div style={{ fontSize: 32, fontStyle: "italic", color: ASH, marginTop: 14 }}>{p.role}</div>
-          <div style={{ display: "flex", marginTop: 34 }}>
-            <Bars count={64} height={56} color={ASH} />
-          </div>
-          <div style={{ display: "flex", alignItems: "center", marginTop: 34, fontSize: 28, color: ASH }}>
+          <div style={{ display: "flex", alignItems: "center", marginTop: 56, fontSize: 28, color: ASH }}>
             <img src={logo} width={44} height={44} style={{ marginRight: 14 }} />
             {`hushstudios.co${p.path}`}
           </div>
