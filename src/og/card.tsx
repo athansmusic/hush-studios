@@ -85,6 +85,51 @@ export async function studioCard() {
   );
 }
 
+/** A person's contact card (/athan): round photo, name, role, the page's address. */
+export async function personCard(p: { name: string; fullName: string; role: string; photo: string; path: string }) {
+  const [logo, photo] = await Promise.all([
+    dataUri(join(root, "src/og/hush.png"), "image/png"),
+    dataUri(join(root, "public", p.photo), p.photo.endsWith(".png") ? "image/png" : "image/jpeg"),
+  ]);
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          background: `radial-gradient(ellipse 60% 85% at 22% 50%, #5a463a, ${NIGHT} 72%)`,
+          backgroundColor: NIGHT,
+          fontFamily: "Serif",
+          color: BONE,
+          padding: "0 80px",
+        }}
+      >
+        <div style={{ display: "flex", width: 380, height: 380, borderRadius: 999, border: `6px solid ${BONE}`, padding: 10, flexShrink: 0 }}>
+          {/* The image renderer ignores objectPosition, so the photo is laid at full width and its top kept by the circle's clip. */}
+          <div style={{ display: "flex", width: 348, height: 348, borderRadius: 999, overflow: "hidden" }}>
+            <img src={photo} width={348} height={541} style={{ marginTop: -8 }} />
+          </div>
+        </div>
+        <div style={{ display: "flex", flexDirection: "column", marginLeft: 72, flex: 1 }}>
+          <div style={{ fontSize: 150, lineHeight: 0.9, letterSpacing: 2 }}>{p.name}</div>
+          <div style={{ fontSize: 44, marginTop: 18 }}>{p.fullName}</div>
+          <div style={{ fontSize: 32, fontStyle: "italic", color: ASH, marginTop: 14 }}>{p.role}</div>
+          <div style={{ display: "flex", marginTop: 34 }}>
+            <Bars count={64} height={56} color={ASH} />
+          </div>
+          <div style={{ display: "flex", alignItems: "center", marginTop: 34, fontSize: 28, color: ASH }}>
+            <img src={logo} width={44} height={44} style={{ marginRight: 14 }} />
+            {`hushstudios.co${p.path}`}
+          </div>
+        </div>
+      </div>
+    ),
+    { ...OG_SIZE, fonts: await fonts() },
+  );
+}
+
 /** A show or work: its art, its colour, its title. */
 export async function productionCard(p: { title: string; kicker?: string; art?: string; accent: string; comingSoon?: boolean }) {
   const [logo, art] = await Promise.all([

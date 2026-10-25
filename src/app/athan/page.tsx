@@ -2,10 +2,16 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import { CARD, type CardIcon, type CardLink } from "./card";
 
+const TITLE = `Athan (${CARD.fullName})`;
+const DESCRIPTION = `${CARD.role} at ${CARD.org}. Shows, music, socials, and a link to book a call.`;
+
+// The share image comes from ./opengraph-image.tsx; Next adds its og:image and twitter:image tags.
 export const metadata: Metadata = {
-  title: "Athan",
-  description: `${CARD.fullName} (Athan), ${CARD.role} at ${CARD.org}. Socials, music and a link to book a call.`,
-  openGraph: { images: [CARD.image] },
+  title: { absolute: `${TITLE} · ${CARD.org}` },
+  description: DESCRIPTION,
+  alternates: { canonical: "/athan" },
+  openGraph: { type: "profile", url: "/athan", title: TITLE, description: DESCRIPTION, siteName: CARD.org, firstName: "Johnathan", lastName: "Magno", username: "athansmusic" },
+  twitter: { card: "summary_large_image", title: TITLE, description: DESCRIPTION, creator: "@AthansMusic" },
 };
 
 function Icon({ icon, className = "size-5" }: { icon: CardIcon; className?: string }) {
