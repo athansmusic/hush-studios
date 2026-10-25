@@ -3,7 +3,7 @@ import Image from "next/image";
 import { CARD, type CardIcon, type CardLink } from "./card";
 
 const TITLE = `Athan (${CARD.fullName})`;
-const DESCRIPTION = `${CARD.role} at ${CARD.org}. Shows, music, socials, and a link to book a call.`;
+const DESCRIPTION = "Athan from Hush Studios: REDACTED, voice actor, musician, streamer.";
 
 // The share image comes from ./opengraph-image.tsx; Next adds its og:image and twitter:image tags.
 export const metadata: Metadata = {
