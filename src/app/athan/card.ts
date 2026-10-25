@@ -1,30 +1,34 @@
-import { siApplemusic, siBluesky, siCalendly, siInstagram, siSpotify, siTiktok, siTwitch, siX, type SimpleIcon } from "simple-icons";
+import { siApplemusic, siBluesky, siInstagram, siSpotify, siTiktok, siTwitch, siX } from "simple-icons";
 import { STUDIO } from "@/data/studio";
 
-export type CardLink = { label: string; handle: string; href: string; icon: SimpleIcon };
+/** An icon is a 24x24 path (simple-icons) or "linkedin", which simple-icons no longer carries. */
+export type CardIcon = { path: string; hex: string } | "linkedin";
+export type CardLink = { label: string; handle: string; href: string; icon: CardIcon; color: string };
+
+const brand = (i: { path: string; hex: string }) => ({ icon: i, color: `#${i.hex}` });
 
 /** Athan's contact card: the /athan page and the saved contact (athan.vcf) both read from here. */
 export const CARD = {
   name: "ATHAN",
-  /** Shown smaller under the name; left off while empty. */
+  /** Shown smaller under the name. */
   fullName: "Johnathan Magno",
   role: "Co-creator and Head of Studio",
   org: STUDIO.name,
   image: "/people/athan.png",
   email: "athan@theredactedunit.com",
   site: STUDIO.url,
-  /** A free Calendly link (calendly.com/<name>/<event>); the button appears once it is filled in. */
+  /** A free Calendly link; the button is left off while empty. */
   booking: "https://calendly.com/athan-theredactedunit/30min",
   social: [
-    { label: "Twitch", handle: "AthansMusic", href: "https://www.twitch.tv/athansmusic", icon: siTwitch },
-    { label: "X", handle: "@AthansMusic", href: "https://x.com/AthansMusic", icon: siX },
-    { label: "TikTok", handle: "@athansmusic", href: "https://www.tiktok.com/@athansmusic", icon: siTiktok },
-    { label: "Instagram", handle: "@athansmusic", href: "https://www.instagram.com/athansmusic/", icon: siInstagram },
-    { label: "Bluesky", handle: "@athansmusic.bsky.social", href: "https://bsky.app/profile/athansmusic.bsky.social", icon: siBluesky },
+    { label: "Instagram", handle: "@athansmusic", href: "https://www.instagram.com/athansmusic/", ...brand(siInstagram) },
+    { label: "TikTok", handle: "@athansmusic", href: "https://www.tiktok.com/@athansmusic", ...brand(siTiktok) },
+    { label: "X", handle: "@AthansMusic", href: "https://x.com/AthansMusic", ...brand(siX) },
+    { label: "Twitch", handle: "AthansMusic", href: "https://www.twitch.tv/athansmusic", ...brand(siTwitch) },
+    { label: "Bluesky", handle: "@athansmusic.bsky.social", href: "https://bsky.app/profile/athansmusic.bsky.social", ...brand(siBluesky) },
+    { label: "LinkedIn", handle: "johnathanmagno", href: "https://www.linkedin.com/in/johnathanmagno/", icon: "linkedin", color: "#0a66c2" },
   ] satisfies CardLink[],
   music: [
-    { label: "Spotify", handle: "Athan", href: "https://open.spotify.com/artist/3XCFEDx0MwDcKKTGsfGCzd", icon: siSpotify },
-    { label: "Apple Music", handle: "Athan", href: "https://music.apple.com/us/artist/athan/1511495649", icon: siApplemusic },
+    { label: "Spotify", handle: "Athan", href: "https://open.spotify.com/artist/3XCFEDx0MwDcKKTGsfGCzd", ...brand(siSpotify) },
+    { label: "Apple Music", handle: "Athan", href: "https://music.apple.com/us/artist/athan/1511495649", ...brand(siApplemusic) },
   ] satisfies CardLink[],
-  calendlyIcon: siCalendly,
 };
