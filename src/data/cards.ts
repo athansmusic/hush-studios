@@ -18,6 +18,8 @@ export type Card = {
   role: string;
   org: string;
   image: string;
+  /** Where the round crop sits on the photo, 0 (top) to 100 (bottom). */
+  photoY?: number;
   email: string;
   site: string;
   /** Meta and share text. */
@@ -89,10 +91,11 @@ export const CARDS = {
     role: "Co-creator and Head of Content",
     org: STUDIO.name,
     image: "/people/jamie-petronis.png",
+    photoY: 22,
     email: "jamie@theredactedunit.com",
     site: STUDIO.url,
     title: "Jamie Petronis",
-    description: "Jamie Petronis from Hush Studios: co-creator and head writer of REDACTED, voice actor, writer.",
+    description: "Jamie Petronis from Hush Studios: REDACTED, screen actor, voice actor, writer.",
     username: "jamiepetronis",
     social: [
       { label: "Instagram", handle: "@jlpetronis", href: "https://www.instagram.com/jlpetronis/", ...brand(siInstagram) },

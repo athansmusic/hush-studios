@@ -86,7 +86,7 @@ export async function studioCard() {
 }
 
 /** A person's contact card (/athan): round photo, name, role, the page's address. */
-export async function personCard(p: { name: string; fullName: string; role: string; photo: string; path: string }) {
+export async function personCard(p: { name: string; fullName: string; role: string; photo: string; path: string; photoY?: number }) {
   const [logo, photo] = await Promise.all([
     dataUri(join(root, "src/og/hush.png"), "image/png"),
     dataUri(join(root, "public", p.photo), p.photo.endsWith(".png") ? "image/png" : "image/jpeg"),
@@ -109,7 +109,7 @@ export async function personCard(p: { name: string; fullName: string; role: stri
         <div style={{ display: "flex", width: 380, height: 380, borderRadius: 999, border: `6px solid ${BONE}`, padding: 10, flexShrink: 0 }}>
           {/* The image renderer ignores objectPosition, so the photo is laid at full width and its top kept by the circle's clip. */}
           <div style={{ display: "flex", width: 348, height: 348, borderRadius: 999, overflow: "hidden" }}>
-            <img src={photo} width={348} height={541} style={{ marginTop: -8 }} />
+            <img src={photo} width={348} height={541} style={{ marginTop: -8 - ((541 - 348) * (p.photoY ?? 0)) / 100 }} />
           </div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", marginLeft: 72, flex: 1 }}>
