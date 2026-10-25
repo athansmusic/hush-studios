@@ -101,6 +101,19 @@ export default function AthanCard() {
             <span className="text-xs text-bone/50">{CARD.email}</span>
           </a>
 
+          <p className="label mt-4 text-center">Watch</p>
+          <div className="overflow-hidden rounded-2xl border border-white/10 bg-night-3">
+            <iframe
+              src={`https://www.youtube-nocookie.com/embed/${CARD.video.id}?rel=0`}
+              title={CARD.video.title}
+              loading="lazy"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              referrerPolicy="strict-origin-when-cross-origin"
+              allowFullScreen
+              className="aspect-video w-full"
+            />
+          </div>
+
           <p className="label mt-4 text-center">Shows</p>
           {CARD.shows.map((s) => (
             <a
