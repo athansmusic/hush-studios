@@ -55,7 +55,7 @@ export default function AthanCard() {
 
       <main className="relative mx-auto flex max-w-md flex-col items-center px-5 pb-14 pt-14 sm:pt-20">
         <div className="rise relative size-32 overflow-hidden rounded-full ring-2 ring-bone/80 ring-offset-4 ring-offset-night shadow-2xl">
-          <Image src={CARD.image} alt={CARD.fullName} fill sizes="128px" priority className="object-cover object-top" />
+          <Image src={CARD.image} alt={CARD.fullName} fill unoptimized priority className="object-cover object-top" />
         </div>
 
         <h1 className="display rise mt-7 text-6xl tracking-wide">{CARD.name}</h1>
