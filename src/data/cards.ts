@@ -91,7 +91,7 @@ export const CARDS = {
     role: "Co-creator and Head of Content",
     org: STUDIO.name,
     image: "/people/jamie-petronis.png",
-    photoY: 22,
+    photoY: 6,
     email: "jamie@theredactedunit.com",
     site: STUDIO.url,
     title: "Jamie Petronis",
